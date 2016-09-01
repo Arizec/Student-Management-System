@@ -6,5 +6,6 @@ public class USER {
 
     private String userId;
     private String fullName;
+    private String test;
 
 }
