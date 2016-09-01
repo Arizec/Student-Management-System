@@ -6,7 +6,7 @@ package USERS;
 public class Admin extends Staff {
   
   public void createProgram(){
-    System.out.println("test");
+
 	  
   }
   
