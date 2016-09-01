@@ -8,6 +8,7 @@ public abstract class Staff{
 
     private String userId;
     private String fullName;
-    private String test;
+    private String password;
+    private String dateOfBirth;
 
 }
