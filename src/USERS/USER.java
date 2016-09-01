@@ -1,12 +1,13 @@
+package USERS;
+
 /**
  * Created by Martin on 1/09/2016.
  */
-public class USER {
+public abstract class USER {
 
 
     private String userId;
     private String fullName;
     private String test;
-    private String ideladjiujd;
 
 }

@@ -1,9 +1,13 @@
-import java.util.*;
+/**
+ * Created by Martin on 1/09/2016.
+ */
+public class main {
 
-//base
-public class StudentManagement{
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+    public static void main(String[] args) {
+        System.out.println("Hello");
 
-	}
+    }
+
+
+}
