@@ -9,8 +9,7 @@ public class main {
     public static void main(String[] args) {
         Menu TestMenu = new Menu();
         TestMenu.runMenu();
-        System.out.println("HelloWorld");
-
+      
 
     }
 
