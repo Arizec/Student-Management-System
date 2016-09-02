@@ -1,4 +1,5 @@
 import MENU.Menu;
+import MENU.Login;
 import java.util.*;
 
 /**
@@ -11,11 +12,14 @@ public class main {
 
 
 
-        
+/*
         Menu TestMenu = new Menu();
         TestMenu.runMenu();
         System.out.println("kek");
-      
+
+*/
+        Login TestLogin =  new Login();
+        TestLogin.loginMenu();
 
     }
 

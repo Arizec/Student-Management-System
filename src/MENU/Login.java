@@ -7,7 +7,7 @@ import java.util.*;
  */
 public class Login {
 
-    private void loginMenu() {
+    public void loginMenu() {
         Scanner reader = new Scanner(System.in);
 
         // Logs user into the system
@@ -19,19 +19,11 @@ public class Login {
 
 
         /* run student menu */
-        if(username.charAt(0)){
+        if(username.charAt(0) == 's'){
             System.out.println("Testing that it works");
         }
 
-        // run coordinator menu
-        else if(usertype[1]== c){
 
-        }
-
-        // run admin menu
-        else if(usertype[1]== a){
-
-        }
 
     }
 
