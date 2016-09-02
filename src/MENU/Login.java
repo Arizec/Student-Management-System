@@ -20,7 +20,21 @@ public class Login {
 
         /* run student menu */
         if(username.charAt(0) == 's'){
-            System.out.println("Testing that it works");
+            System.out.println("Student");
+        }
+        else if(username.charAt(0) == 'a'){
+
+            System.out.println("Admin");
+
+        }
+        else if(username.charAt(0) == 'c'){
+
+            System.out.println("Coordinator");
+
+        }
+        else if(username.charAt(0) == 'f'){
+            System.out.println("Faculty Admin");
+            
         }
 
 
