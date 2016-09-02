@@ -23,6 +23,7 @@ public class AdminMenu {
         System.out.println("3. Upload Enrolment(s)");
     }
 
+
     private void performChoices(int choice){
         switch (choice){
             case 1:
