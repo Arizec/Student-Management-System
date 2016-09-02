@@ -73,7 +73,7 @@ public class Login {
     private boolean findLoginDetails(String username, String password){
         BufferedReader br;
         try {
-            br = new BufferedReader(new FileReader("username.txt"));
+            br = new BufferedReader(new FileReader("loginDetails.txt"));
             try {
                 String x;
                 while ( (x = br.readLine()) != null ) {
