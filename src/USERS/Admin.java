@@ -35,6 +35,15 @@ public class Admin extends Staff {
         }
   }
   
+  public void createStudent(){
+	  	Scanner reader = new Scanner(System.in);
+	  	System.out.print("Enter student name: ");
+	  	String studentName = input.nextLine();
+		System.out.print("Enter DOB: ");
+		String DOB = input.nextLine();
+		addStudent(new Student(studentName, DOB));
+  }
+  
   public void createProgram(){
   			try
 			{
