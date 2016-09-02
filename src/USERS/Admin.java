@@ -1,5 +1,8 @@
 package USERS;
 
+import java.util.*;
+import java.io.*;
+
 /**
  * Created by Martin on 1/09/2016.
  */
@@ -11,7 +14,8 @@ public class Admin extends Staff {
   }
   
   public void createStudentID(){
-  	try
+
+        try
 		{
 
 		    String filename= "loginDetails.txt";
@@ -24,16 +28,17 @@ public class Admin extends Staff {
 		    System.out.println("Create Student Password");
 		    String password = reader.nextLine();
 		    
-		    String logindetails = studentId + ":" + password;
+		    String logindetails = studentID + ":" + password;
 		   
-		    fw.write(addStudentID);//appends the string to the file
+		    fw.write(logindetails);//appends the string to the file
 		    fw.close();
 		}
 		catch(IOException ioe)
 		{
 		    System.err.println("IOException: " + ioe.getMessage());
-}
+        }
   }
-  
+
+
 }
 

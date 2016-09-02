@@ -1,12 +1,13 @@
 package MENU;
 
 import java.util.*;
-
+import USERS.Admin;
 /**
  * Created by Martin on 1/09/2016.
  */
 public class AdminMenu {
 
+    Admin useAdmin = new Admin();
 
     private void printHeader(){
 
@@ -18,7 +19,7 @@ public class AdminMenu {
     }
 
     private void menuOptions(){
-        System.out.println("\n1. Set Up New Program");
+        System.out.println("\n1. Create Student");
         System.out.println("2. Add Student Account(s)");
         System.out.println("3. Upload Enrolment(s)");
     }
@@ -27,7 +28,7 @@ public class AdminMenu {
     private void performChoices(int choice){
         switch (choice){
             case 1:
-                System.out.println("1");
+                useAdmin.createStudentID();
                 break;
             case 2:
                 System.out.println("2");
