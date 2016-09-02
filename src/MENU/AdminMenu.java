@@ -20,7 +20,7 @@ public class AdminMenu {
 
     private void menuOptions(){
         System.out.println("\n1. Create Student");
-        System.out.println("2. Add Student Account(s)");
+        System.out.println("2. Create Program");
         System.out.println("3. Upload Enrolment(s)");
     }
 
@@ -31,7 +31,7 @@ public class AdminMenu {
                 useAdmin.createStudentID();
                 break;
             case 2:
-                System.out.println("2");
+                useAdmin.createProgram();
                 break;
             case 3:
                 System.out.println("3");
