@@ -23,7 +23,7 @@ public class main {
         
         /* run student menu */
         if(usertype[1]== s){
-            
+            System.out.prinitln("Testing that it works");
         }
         
         // run coordinator menu 
