@@ -22,17 +22,17 @@ public class main {
         usertype[2];
         
         /* run student menu */
-        if(usertype== s){
+        if(usertype[1]== s){
             
         }
         
         // run coordinator menu 
-        else if(usertype== c){
+        else if(usertype[1]== c){
             
         }
         
         // run admin menu 
-        else if(usertype== a){
+        else if(usertype[1]== a){
             
         }
         
