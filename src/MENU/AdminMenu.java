@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Created by Martin on 1/09/2016.
  */
-public class Menu {
+public class AdminMenu {
 
 
     private void printHeader(){
@@ -37,8 +37,6 @@ public class Menu {
             default:
                 System.out.println("4");
                 break;
-
-
 
         }
 

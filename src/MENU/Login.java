@@ -8,6 +8,11 @@ import java.util.*;
 public class Login {
 
     public void loginMenu() {
+        AdminMenu adminMenu = new AdminMenu();
+        CoordinatorMenu coMenu = new CoordinatorMenu();
+        FacultyMenu facMenu = new FacultyMenu();
+        StudentMenu studentMenu = new StudentMenu();
+
         Scanner reader = new Scanner(System.in);
 
         // Logs user into the system
@@ -20,21 +25,22 @@ public class Login {
 
         /* run student menu */
         if(username.charAt(0) == 's'){
-            System.out.println("Student");
+            studentMenu.runMenu();
         }
         else if(username.charAt(0) == 'a'){
 
-            System.out.println("Admin");
+
+            adminMenu.runMenu();
 
         }
         else if(username.charAt(0) == 'c'){
 
-            System.out.println("Coordinator");
+            coMenu.runMenu();
 
         }
         else if(username.charAt(0) == 'f'){
-            System.out.println("Faculty Admin");
-            
+            facMenu.runMenu();
+
         }
 
 
