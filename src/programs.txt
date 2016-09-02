@@ -1,0 +1,2 @@
+/* format */is
+programName:progamCode:creditsRequired:coreCourses:specializationCourses
