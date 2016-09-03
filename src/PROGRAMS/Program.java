@@ -42,17 +42,8 @@ public abstract class Program {
 	}
 
 
-
-	/**
-	 * Overridden method, the string representation of this object will be used
-	 * for persisting the objects in files. Very important are the ":"
-	 * characters which are tokens separating fields, used to retrieve the
-	 * objects from file
-	 */
-	@Override
 	public String toString() {
-		return holdingId + ":" + title + ":" + loanFee + ":" + maxLoanPeriod + ":" + isActive + ":"
-				+ (borrowDate != null ? borrowDate : "free");
+		return programID + ":" + programTitle + ":" + programType + ":" + isActive;
 	}
 
 	/**
