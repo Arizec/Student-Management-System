@@ -15,7 +15,7 @@ public abstract class Student /*implements something */ {
 	protected int credit;
 	protected String program;
 	protected boolean isActive;
-	/*protected Course[] currentCourse; */
+	/*protected Course[] currentCourse; or maybe Program[] currentProgram?*/
 
 	/**
 	 * Base constructor to set the student name, initialize the array of current
