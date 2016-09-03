@@ -57,7 +57,7 @@ public abstract class Student /*implements something */ {
 		this.credit = getMaxCredit();
 	}
 
-	public Holding[] getCurrentHoldings() {
+	public Holding[] getCurrentHoldings() { //holdings may be courses? idk
 		return this.currentHoldings;
 	}
 
