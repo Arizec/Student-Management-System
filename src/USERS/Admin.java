@@ -9,7 +9,7 @@ import java.io.*;
 public class Admin extends Staff {
 
   
-  public void createStudentID(){
+  public void createStudentLogin(){
 
         try
 		{
