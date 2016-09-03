@@ -18,7 +18,7 @@ public class Admin extends Staff {
 		    FileWriter fw = new FileWriter(filename,true); //the true will append the new data
 		    Scanner reader = new Scanner(System.in);
 		  
-		    
+		    System.out.println("Create Student login details: ")
 		    System.out.println("Create Student ID");
 		    String studentID = reader.nextLine();
 		    System.out.println("Create Student Password");
@@ -37,10 +37,18 @@ public class Admin extends Staff {
   
   public void createStudent(){
 	  	Scanner reader = new Scanner(System.in);
-	  	System.out.print("Enter student name: ");
+	  	//student profile is create. Name+ DOB + program
+	  	
+	  	System.out.println("\n Now create student profile");
+	  	System.out.println("Re-enter Student ID");
+		String studentID = reader.nextLine();
+	  	System.out.println("Enter student name: ");
 	  	String studentName = input.nextLine();
-		System.out.print("Enter DOB: ");
+		System.out.println("Enter DOB: ");
 		String DOB = input.nextLine();
+		System.our.println("Enter program name");
+		String programName;
+		
 		addStudent(new Student(studentName, DOB));
   }
   
