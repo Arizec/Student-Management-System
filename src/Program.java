@@ -9,6 +9,7 @@ import util.SystemOperations;
 public abstract class Program implements SystemOperations {
 	protected String programId;
 	protected String programTitle;
+	protected String programType; //(i.e masters/bachelors/phd)
 	protected boolean isActive;
 
 	/**
@@ -18,17 +19,17 @@ public abstract class Program implements SystemOperations {
 	 * @param holdingId
 	 * @param title
 	 */
-	public Holding(String holdingId, String title) {
-		this.title = title;
+	public Holding(String programId, String programTitle) {
+		this.programTitle = programTitle;
 		isActive = true;
 	}
 
 	public String getID() {
-		return holdingId;
+		return programId;
 	}
 
 	public String getTitle() {
-		return this.title;
+		return this.programTitle;
 	}
 
 	public boolean getStatus() {
