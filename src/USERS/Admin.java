@@ -43,13 +43,13 @@ public class Admin extends Staff {
 	  	System.out.println("Re-enter Student ID");
 		String studentID = reader.nextLine();
 	  	System.out.println("Enter student name: ");
-	  	String studentName = input.nextLine();
+	  	String studentName = reader.nextLine();
 		System.out.println("Enter DOB: ");
-		String DOB = input.nextLine();
+		String DOB = reader.nextLine();
 		System.our.println("Enter program name");
-		String programName;
+		String programName = reader.nextLine();
 		
-		addStudent(new Student(studentName, DOB));
+		addStudent(new Student(studentID, studentName, DOB, programName));
   }
   
   public void createProgram(){
