@@ -28,8 +28,8 @@ public class AdminMenu {
     private void performChoices(int choice){
         switch (choice){
             case 1:
-                useAdmin.createStudentLogin();
-                useAdmin.createStudent();
+                String studentIDcreated = useAdmin.createStudentLogin();        // makes sure it uses the studentID it created previously
+                useAdmin.createStudent(studentIDcreated);
                 break;
             case 2:
                 useAdmin.createProgram();

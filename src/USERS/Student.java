@@ -7,19 +7,29 @@ public class Student {
 
     private String studentID;
     private String fullName;
-    private String password;
-    private int credit;
+    private String dob;
+    private String programCode;
 
-    public Student(String studentID, String password, String fullName, int credit){
+
+    public Student(String studentID, String fullName, String programCode, String dob){
         this.studentID = studentID;
-        this.password = password;
         this.fullName = fullName;
-        this.credit = credit;
+        this.programCode = programCode;
+        this.dob = dob;
     }
 
     public String getStudentID(){
 
-        return this.studentID;
+        return studentID;
+    }
+
+    public String getFullName(){
+        return fullName;
+
+    }
+
+    public String toString(){
+        return studentID + ":" + fullName + ":" + programCode + ":" + dob;
     }
 
 
