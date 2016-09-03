@@ -1,22 +1,15 @@
 package model.base; //put in package called model.base
 
-import exceptions.ItemInactiveException;
-import exceptions.OnLoanException;
-import util.DateTime;
+// import exceptions //
 import util.SystemOperations;
 
 /**
  * Base holding class. This should be extended to add specific functionality.
  */
-public abstract class Holding implements SystemOperations {
-	protected String holdingId;
-	protected String title;
-	protected int loanFee;
-	protected int maxLoanPeriod;
-	protected int latePenaltyFee;
-	protected boolean isTempRemoved;
+public abstract class Program implements SystemOperations {
+	protected String programId;
+	protected String programTitle;
 	protected boolean isActive;
-	protected DateTime borrowDate;
 
 	/**
 	 * Base constructor to set the title. The id will be set in child classes.
