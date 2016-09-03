@@ -28,7 +28,8 @@ public class AdminMenu {
     private void performChoices(int choice){
         switch (choice){
             case 1:
-                useAdmin.createStudentID();
+                useAdmin.createStudentLogin();
+                useAdmin.createStudent();
                 break;
             case 2:
                 useAdmin.createProgram();
