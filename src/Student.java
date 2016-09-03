@@ -5,10 +5,13 @@ package model.base;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+//import exceptions //
+import util.SystemOperations;
+
 /**
  * Base Student class. Should be extended to add extra functionality.
  */
-public abstract class Student /*implements something */ {
+public abstract class Student implements SystemOperations  {
 
 	protected String studentId;
 	protected String fullName;
