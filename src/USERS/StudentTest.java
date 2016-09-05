@@ -9,7 +9,7 @@ import org.junit.Before;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class studentTest {
+public class StudentTest {
     Student student;
     //existingID, studentName, programCode, DOB
     @Before
