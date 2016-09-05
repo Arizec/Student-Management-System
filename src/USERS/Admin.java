@@ -28,7 +28,7 @@ public class Admin extends Staff {
 			String password = reader.nextLine();
 
 			String logindetails = studentID + ":" + password;
-
+			fw.write("\n");
 			fw.write(logindetails);//appends the string to the file
 			fw.close();
 			return studentID;
