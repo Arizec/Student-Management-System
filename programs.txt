@@ -1,2 +1,5 @@
 IT1023:1:48:Bachelor:Active
-LS1224:2:45:POSTGRAD:Active
+SB1224:2:45:Postgrad:Active
+SS1532:2:45:Bachelor:Active
+SB626:1:47:Bachelor:Active
+SS131313:1:323:Bachelor:Active

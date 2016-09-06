@@ -1,3 +1,0 @@
-/* format */is
-programName:progamCode:creditsRequired:coreCourses:specializationCourses
-s3607187:Martin:BACH123:29/05

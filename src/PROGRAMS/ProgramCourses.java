@@ -87,13 +87,11 @@ public class ProgramCourses {
 
     }
 
-    public void printCourses(){
+    public void printCourseDetails(){
         for(int i = 0; i< courseList.size(); i++){
-            System.out.println(courseList.get(i).getCourseName());
+            courseList.get(i).printCourse();
 
         }
-
-
     }
 
     public String toString(){

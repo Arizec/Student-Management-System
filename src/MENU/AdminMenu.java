@@ -1,16 +1,16 @@
 package MENU;
 
 import java.util.*;
-import USERS.Admin;
-import Driver.Driver;
-import PROGRAMS.*;
+
+import Driver.*;
+
 /**
  * Created by Martin on 1/09/2016.
  */
 public class AdminMenu {
 
     Driver driverClass = new Driver();
-    Program programClass = new Program();
+    ProgramDriver programClass = new ProgramDriver();
 
 
     private void printHeader(){
@@ -25,7 +25,8 @@ public class AdminMenu {
     private void menuOptions(){
         System.out.println("\n1. Create Student");
         System.out.println("2. Create Program");
-        System.out.println("3. Upload Enrolment(s)");
+        System.out.println("3. View Program Details");
+        System.out.println("4. Exit");
     }
 
 
@@ -44,11 +45,16 @@ public class AdminMenu {
             	break;
             case 2:
                 driverClass.createProgram();
+
                 break;
             case 3:
-                programClass.loadProgram();
-                programClass.printShit();
+                programClass.refreshProgramCourses();
+                programClass.printPrograms();
+                //print
 
+                break;
+            case 4:
+                System.out.println("Exit");
                 break;
             default:
                 System.out.println("4");
@@ -64,7 +70,7 @@ public class AdminMenu {
         int choice = -1;
         Scanner input = new Scanner(System.in);
 
-        while( choice <0 || choice > 4){										// catches exception if not a number between 0 and 12.
+        while( choice <0 || choice > 5){										// catches exception if not a number between 0 and 12.
             try {
                 System.out.print("\nEnter Your Choice: ");
                 choice = Integer.parseInt(input.nextLine());
@@ -82,12 +88,14 @@ public class AdminMenu {
 
 
     public void runMenu(){
+        programClass.initializeProgramANDCourses();
 
-        printHeader();
-        menuOptions();
-        int choice = getInput();
-        performChoices(choice);
-
+        while(true){
+            printHeader();
+            menuOptions();
+            int choice = getInput();
+            performChoices(choice);
+        }
 
     }
 

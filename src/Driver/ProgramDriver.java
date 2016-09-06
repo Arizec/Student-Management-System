@@ -1,13 +1,14 @@
-package PROGRAMS;
+package Driver;
+
+import PROGRAMS.ProgramCourses;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Martin on 6/09/2016.
  */
-public class Program {
+public class ProgramDriver {
 
 
     ArrayList<ProgramCourses> programList =  new ArrayList<ProgramCourses>();
@@ -15,7 +16,7 @@ public class Program {
 
     private boolean active;
 
-    public void loadProgram(){
+    public void initializeProgramANDCourses(){
         BufferedReader br;
         try {
             br = new BufferedReader(new FileReader("programs.txt"));
@@ -29,6 +30,7 @@ public class Program {
                     String programName = programTxt[1];
                     int creditsRequired = Integer.parseInt(programTxt[2]);
                     String programType = programTxt[3];
+
                     if(programTxt[4].equals("Active")){
                         active = true;
 
@@ -40,7 +42,10 @@ public class Program {
                     ProgramCourses program = new ProgramCourses(programCode, programName, creditsRequired, programType, active);
                     programList.add(program);
 
+
+
                 }
+                addCoursesToProgram();
 
 
             } catch (IOException e) {
@@ -54,18 +59,34 @@ public class Program {
 
     }
 
-
-
-    public void printShit(){
-        for(int i = 0; i< programList.size(); i++){
-            System.out.println(programList.get(i).toString());
-            programList.get(i).addCourses();
-            programList.get(i).printCourses();
-
+    public void refreshProgramCourses(){
+        for(int i = 0; i < programList.size(); i++){
+            programList.remove(i);
 
         }
+        programList.clear();
+        initializeProgramANDCourses();
+    }
 
 
+    public void printPrograms(){
+        for(int i = 0; i< programList.size(); i++){
+            String programCode = programList.get(i).getProgramCode();
+            System.out.println("=============================");
+            System.out.println("    Program Code: " + programCode);
+            System.out.println("======Courses=Included======= ");
+            System.out.println("-------------------------------------------");
+            programList.get(i).printCourseDetails();
+            System.out.println("-------------------------------------------");
+        }
+        System.out.println("=============================");
+    }
+
+
+    private void addCoursesToProgram(){
+        for(int i = 0; i< programList.size(); i++){
+            programList.get(i).addCourses();
+        }
     }
 
 

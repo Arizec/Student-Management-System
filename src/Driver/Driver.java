@@ -1,12 +1,10 @@
 package Driver;
 
-import PROGRAMS.Program;
 import USERS.Student;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-import USERS.*;
 
 /**
  * Created by Martin on 6/09/2016.
@@ -35,7 +33,7 @@ public class Driver {
             String password = reader.nextLine();
 
             String logindetails = studentID + ":" + password;
-            fw.write("\n");
+            fw.write("\r\n");
             fw.write(logindetails);//appends the string to the file
             fw.close();
             return studentID;
@@ -84,9 +82,9 @@ public class Driver {
             Scanner reader = new Scanner(System.in);
 
             System.out.println("Creating a new program");
-
+            String facultyChoice = schoolFaculty();
             System.out.println("Program code");
-            String programCode = reader.nextLine();
+            String programCode = facultyChoice + reader.nextLine();
 
             System.out.println("Version number");
             String versionNo = reader.nextLine();
@@ -94,14 +92,12 @@ public class Driver {
             System.out.println("Credits to complete program");
             String creditsNeeded = reader.nextLine();
 
-            System.out.println("Program type(Bachelor/Honours/Diploma/Masters)");
-            String programType = reader.nextLine();
+            String programType = programType();
 
-            System.out.println("Program status");
-            String programStatus = reader.nextLine();
+            String programStatus = status();
 
             String program = programCode + ":" + versionNo + ":" + creditsNeeded + ":" + programType +  ":" + programStatus;
-
+            fw.write("\r\n");
             fw.write(program);//appends the string to the file
             fw.close();
         }
@@ -119,7 +115,7 @@ public class Driver {
 
             String filename= "studentList.txt";
             FileWriter fw = new FileWriter(filename,true); //the true will append the new data
-            fw.write("\n");
+            fw.write("\r\n");
             fw.write(student.toString());//appends the string to the file
             fw.close();
         }
@@ -130,6 +126,98 @@ public class Driver {
 
 
     }
+
+
+    private String programType(){
+        while(true) {
+            System.out.println("\nProgram Type:");
+            System.out.println("\n1. Bachelor");
+            System.out.println("2. Honours");
+            System.out.println("3. Master");
+            System.out.println("4. Diploma");
+            int choice = getInput(4);
+
+            switch(choice){
+                case 1:
+                    return "Bachelor";
+                case 2:
+                    return "Honours";
+                case 3:
+                    return "Master";
+
+                case 4:
+                    return "Diploma";
+
+            }
+
+
+        }
+    }
+
+    private String schoolFaculty(){
+        while(true) {
+            System.out.println("\nEnter Faculty of Program:");
+            System.out.println("\n1. School of Science");
+            System.out.println("2. School of Business");
+            System.out.println("3. School of Information Technology");
+            System.out.println("4. School of Engineering");
+            int choice = getInput(4);
+
+            switch(choice){
+                case 1:
+                    return "SS";
+                case 2:
+                    return "SB";
+                case 3:
+                    return "IT";
+
+                case 4:
+                    return "SE";
+
+            }
+
+
+        }
+
+    }
+
+    private String status(){
+        while(true) {
+            System.out.println("\nEnter Faculty of Program:");
+            System.out.println("\n1. Active");
+            System.out.println("2. Inactive");
+            int choice = getInput(2);
+
+            switch(choice){
+                case 1:
+                    return "Active";
+                case 2:
+                    return "Inactive";
+
+            }
+
+
+        }
+    }
+
+    private int getInput(int numberofChoices){
+        int choice = -1;
+        Scanner input = new Scanner(System.in);
+
+        while( choice <0 || choice >= numberofChoices){										// catches exception if not a number between 0 and 12.
+            try {
+                System.out.print("\nEnter Your Choice: ");
+                choice = Integer.parseInt(input.nextLine());
+            }
+            catch(NumberFormatException e){
+                System.out.println("Invalid Selection. Please Try Again");
+            }
+        }
+        return choice;
+    }
+
+
+
 
 
 

@@ -57,17 +57,6 @@ public class Login {
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
     }
 
     private boolean findLoginDetails(String username, String password){
