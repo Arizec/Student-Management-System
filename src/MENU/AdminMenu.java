@@ -2,12 +2,13 @@ package MENU;
 
 import java.util.*;
 import USERS.Admin;
+import Driver.Driver;
 /**
  * Created by Martin on 1/09/2016.
  */
 public class AdminMenu {
 
-    Admin useAdmin = new Admin();
+    Driver driverClass = new Driver();
 
     private void printHeader(){
 
@@ -28,11 +29,11 @@ public class AdminMenu {
     private void performChoices(int choice){
         switch (choice){
             case 1:
-                String studentIDcreated = useAdmin.createStudentLogin();        // makes sure it uses the studentID it created previously
-                useAdmin.createStudent(studentIDcreated);
+                String studentIDcreated = driverClass.createStudentLogin();        // makes sure it uses the studentID it created previously
+                driverClass.createStudent(studentIDcreated);
                 break;
             case 2:
-                useAdmin.createProgram();
+                driverClass.createProgram();
                 break;
             case 3:
                 System.out.println("3");
