@@ -20,7 +20,7 @@ public class AdminMenu {
     }
 
     private void menuOptions(){
-        System.out.println("\n1. Create Student");
+        System.out.println("\n1. Create Student Account");
         System.out.println("2. Create Program");
         System.out.println("3. Upload Enrolment(s)");
     }
@@ -29,9 +29,16 @@ public class AdminMenu {
     private void performChoices(int choice){
         switch (choice){
             case 1:
-                String studentIDcreated = driverClass.createStudentLogin();        // makes sure it uses the studentID it created previously
-                driverClass.createStudent(studentIDcreated);
-                break;
+               Scanner reader = new Scanner(System.in);
+            	System.out.println("How many student accounts would you like to add?");
+            	int numberOfAccounts = reader.nextInt();
+            	
+            	int i;
+            	for(i=0; i<numberOfAccounts; i++){
+            			String studentIDcreated = driverClass.createStudentLogin();        // makes sure it uses the studentID it created previously
+            			driverClass.createStudent(studentIDcreated);            			
+            			};
+            	break;
             case 2:
                 driverClass.createProgram();
                 break;
