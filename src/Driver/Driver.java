@@ -132,12 +132,7 @@ public class Driver {
     }
 
 
-    public void defineProgram() {
-        private int creditsNeeded;
-        private static Program[] programs = new Program[100]; // number of programs
 
-
-    }
 
 
 

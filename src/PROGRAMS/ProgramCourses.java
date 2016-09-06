@@ -10,29 +10,94 @@ package PROGRAMS;
 
 import PROGRAMS.*;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class ProgramCourses {
 
     private String programCode;
     private String programVersion;
     private int creditsNeeded;
     private String programType;
-    private String status;
+    private Boolean status;
+
+    ArrayList<Courses> courseList =  new ArrayList<Courses>();
+
+
+    public ProgramCourses(String programCode, String programVersion, int creditsNeeded, String programType, boolean status){
+        this.programCode = programCode;
+        this.programVersion = programVersion;
+        this.creditsNeeded = creditsNeeded;
+        this.programType = programType;
+        this.status = status;
+    }
+
+
+    public String getProgramCode(){
+        return programCode;
+    }
+
+    public String getStatus(){
+        if(status == true){
+            return "Active";
+
+        }else{
+
+            return "Down";
+        }
+
+    }
+
+    public void addCourses(){
+        BufferedReader br;
+        try {
+            br = new BufferedReader(new FileReader("courses.txt"));
+            try {
+                String x;
+                while ( (x = br.readLine()) != null ) {
+                    // printing out each line in the file
+
+                    String programTxt[] = x.split(":", 4);
+                    String courseCode = programTxt[0];
+                    String courseName = programTxt[1];
+                    int creditsEarned = Integer.parseInt(programTxt[2]);
+                    String programLink = programTxt[3];
 
 
 
+                    Courses course = new Courses(courseCode, courseName, creditsEarned, programLink );
+                    if(programCode.contains(course.getProgramLink())){
+                        courseList.add(course);
 
-    private int coursecounter;
+                    }
+
+                }
 
 
-    public ProgramCourses(){
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
 
+    }
 
-        public void createCourses(){
-
-
+    public void printCourses(){
+        for(int i = 0; i< courseList.size(); i++){
+            System.out.println(courseList.get(i).getCourseName());
 
         }
 
+
+    }
+
+    public String toString(){
+        return programCode + ":" + programVersion + ":" + Integer.toString(creditsNeeded) + ":" + programType + ":" + getStatus();
 
     }
 

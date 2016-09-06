@@ -12,6 +12,7 @@ public class AdminMenu {
     Driver driverClass = new Driver();
     Program programClass = new Program();
 
+
     private void printHeader(){
 
         System.out.println("\n+--------------------------------+");
@@ -39,14 +40,15 @@ public class AdminMenu {
             	for(i=0; i<numberOfAccounts; i++){
             			String studentIDcreated = driverClass.createStudentLogin();        // makes sure it uses the studentID it created previously
             			driverClass.createStudent(studentIDcreated);            			
-            			};
+                };
             	break;
             case 2:
                 driverClass.createProgram();
                 break;
             case 3:
                 programClass.loadProgram();
-                programClass.printPrograms();
+                programClass.printShit();
+
                 break;
             default:
                 System.out.println("4");

@@ -1,9 +1,6 @@
 package PROGRAMS;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +9,11 @@ import java.util.List;
  */
 public class Program {
 
-    ArrayList<ArrayList<String>> program = new ArrayList<ArrayList<String>>();
-    ArrayList<String> programDetails =  new ArrayList<String>();
+
+    ArrayList<ProgramCourses> programList =  new ArrayList<ProgramCourses>();
 
 
-    private int programCounter = 0;
+    private boolean active;
 
     public void loadProgram(){
         BufferedReader br;
@@ -26,14 +23,25 @@ public class Program {
                 String x;
                 while ( (x = br.readLine()) != null ) {
                     // printing out each line in the file
-                    String programTxt[] = x.split(":", 5);
-                    for(int i = 0; i<5; i++){
-                        programDetails.add(programTxt[i]);
-                    }
-                    program.add(programDetails);
 
+                    String programTxt[] = x.split(":", 5);
+                    String programCode = programTxt[0];
+                    String programName = programTxt[1];
+                    int creditsRequired = Integer.parseInt(programTxt[2]);
+                    String programType = programTxt[3];
+                    if(programTxt[4].equals("Active")){
+                        active = true;
+
+                    }else{
+                        active = false;
+
+                    }
+
+                    ProgramCourses program = new ProgramCourses(programCode, programName, creditsRequired, programType, active);
+                    programList.add(program);
 
                 }
+
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -46,15 +54,13 @@ public class Program {
 
     }
 
-    public void printPrograms(){
 
 
-        for(int i = 0; i< 2; i++){
-            ArrayList hello = program.get(i);
-            for(int j = 0; j<5; j++){
-                System.out.println(hello.get(j));
-
-            }
+    public void printShit(){
+        for(int i = 0; i< programList.size(); i++){
+            System.out.println(programList.get(i).toString());
+            programList.get(i).addCourses();
+            programList.get(i).printCourses();
 
 
         }
