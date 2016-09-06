@@ -34,7 +34,9 @@ public class Admin {
 			FileWriter fw = new FileWriter(filename,true); //the true will append the new data
 			Scanner reader = new Scanner(System.in);
 
-			System.out.println("Create Student login details: ");
+			System.out.println("Create Student login details:");
+			System.out.println("\n=============================\n");
+			
 			System.out.println("Create Student ID");
 			String studentID = reader.nextLine();
 			System.out.println("Create Student Password");
