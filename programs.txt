@@ -1,0 +1,2 @@
+IT1023:1:48:Bachelor:Active
+LS1224:2:45:POSTGRAD:Active

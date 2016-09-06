@@ -1,0 +1,2 @@
+//programID + ":" + programTitle + ":" + programType + ":" + isActive;
+COSC123:Java:Bachelor:Active

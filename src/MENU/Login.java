@@ -17,7 +17,7 @@ public class Login {
         Scanner reader = new Scanner(System.in);
 
         // Logs user into the system
-        System.out.println("Welcome to the system!");
+        System.out.println("Welcome to the system! Enter your details below. ");
 
         while(true) {
             System.out.println("Username: ");

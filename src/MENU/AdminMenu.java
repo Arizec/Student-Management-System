@@ -2,12 +2,16 @@ package MENU;
 
 import java.util.*;
 import USERS.Admin;
+import Driver.Driver;
+import PROGRAMS.*;
 /**
  * Created by Martin on 1/09/2016.
  */
 public class AdminMenu {
 
-    Admin useAdmin = new Admin();
+    Driver driverClass = new Driver();
+    Program programClass = new Program();
+
 
     private void printHeader(){
 
@@ -28,14 +32,23 @@ public class AdminMenu {
     private void performChoices(int choice){
         switch (choice){
             case 1:
-                String studentIDcreated = useAdmin.createStudentLogin();        // makes sure it uses the studentID it created previously
-                useAdmin.createStudent(studentIDcreated);
-                break;
+               Scanner reader = new Scanner(System.in);
+            	System.out.println("How many student accounts would you like to add?");
+            	int numberOfAccounts = reader.nextInt();
+            	
+            	int i;
+            	for(i=0; i<numberOfAccounts; i++){
+            			String studentIDcreated = driverClass.createStudentLogin();        // makes sure it uses the studentID it created previously
+            			driverClass.createStudent(studentIDcreated);            			
+                };
+            	break;
             case 2:
-                useAdmin.createProgram();
+                driverClass.createProgram();
                 break;
             case 3:
-                System.out.println("3");
+                programClass.loadProgram();
+                programClass.printShit();
+
                 break;
             default:
                 System.out.println("4");
@@ -51,7 +64,7 @@ public class AdminMenu {
         int choice = -1;
         Scanner input = new Scanner(System.in);
 
-        while( choice <0 || choice > 3){										// catches exception if not a number between 0 and 12.
+        while( choice <0 || choice > 4){										// catches exception if not a number between 0 and 12.
             try {
                 System.out.print("\nEnter Your Choice: ");
                 choice = Integer.parseInt(input.nextLine());

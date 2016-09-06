@@ -28,6 +28,16 @@ public class Student {
 
     }
 
+    public String getprogramCode(){
+        return programCode;
+
+    }
+
+    public String getDob(){
+        return dob;
+
+    }
+
     public String toString(){
         return studentID + ":" + fullName + ":" + programCode + ":" + dob;
     }

@@ -2,14 +2,27 @@ package USERS;
 
 import java.util.*;
 import java.io.*;
+
+import PROGRAMS.Program;
 import USERS.*;
 
 /**
  * Created by Martin on 1/09/2016.
  */
-public class Admin extends Staff {
+public class Admin {
+
+	private String studentID;
+	private String fullName;
+	private String dob;
+	private String programCode;
 
 
+	public Admin(String studentID, String fullName, String programCode, String dob){
+		this.studentID = studentID;
+		this.fullName = fullName;
+		this.programCode = programCode;
+		this.dob = dob;
+	}
 
   
 	public String createStudentLogin(){
@@ -21,14 +34,16 @@ public class Admin extends Staff {
 			FileWriter fw = new FileWriter(filename,true); //the true will append the new data
 			Scanner reader = new Scanner(System.in);
 
-			System.out.println("Create Student login details: ");
+			System.out.println("Create Student login details:");
+			System.out.println("\n=============================\n");
+			
 			System.out.println("Create Student ID");
 			String studentID = reader.nextLine();
 			System.out.println("Create Student Password");
 			String password = reader.nextLine();
 
 			String logindetails = studentID + ":" + password;
-
+			fw.write("\n");
 			fw.write(logindetails);//appends the string to the file
 			fw.close();
 			return studentID;
@@ -94,6 +109,7 @@ public class Admin extends Staff {
 				String programStatus = reader.nextLine();
 
 				String program = programCode + ":" + versionNo + ":" + creditsNeeded + ":" + programType +  ":" + programStatus;
+
 
 				fw.write(program);//appends the string to the file
 				fw.close();
