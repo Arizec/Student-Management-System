@@ -16,6 +16,10 @@ public class ProgramDriver {
 
     private boolean active;
 
+
+    /*
+     * Append program information to external text file
+     */
     public void initializeProgramANDCourses(){
         BufferedReader br;
         try {
@@ -25,13 +29,14 @@ public class ProgramDriver {
                 while ( (x = br.readLine()) != null ) {
                     // printing out each line in the file
 
-                    String programTxt[] = x.split(":", 5);
+                    String programTxt[] = x.split(":", 6);
                     String programCode = programTxt[0];
                     String programName = programTxt[1];
-                    int creditsRequired = Integer.parseInt(programTxt[2]);
-                    String programType = programTxt[3];
+                    String version = programTxt[2];
+                    int creditsRequired = Integer.parseInt(programTxt[3]);
+                    String programType = programTxt[4];
 
-                    if(programTxt[4].equals("Active")){
+                    if(programTxt[5].equals("Active")){
                         active = true;
 
                     }else{
@@ -39,7 +44,7 @@ public class ProgramDriver {
 
                     }
 
-                    ProgramCourses program = new ProgramCourses(programCode, programName, creditsRequired, programType, active);
+                    ProgramCourses program = new ProgramCourses(programCode, programName, version, creditsRequired, programType, active);
                     programList.add(program);
 
 
@@ -59,6 +64,9 @@ public class ProgramDriver {
 
     }
 
+    /*
+     * Clears the program buffer, if user wants to create another program
+     */
     public void refreshProgramCourses(){
         for(int i = 0; i < programList.size(); i++){
             programList.remove(i);
@@ -69,25 +77,38 @@ public class ProgramDriver {
     }
 
 
+    /*
+     * Print associated core courses and specialisation courses of related
+     * programs
+     */
     public void printPrograms(){
         for(int i = 0; i< programList.size(); i++){
             String programCode = programList.get(i).getProgramCode();
+            String programName = programList.get(i).getProgramName();
+            String programType = programList.get(i).getProgramType();
             System.out.println("=============================");
+            System.out.println("    Program Name: "+ programType +" of "+ programName);
             System.out.println("    Program Code: " + programCode);
-            System.out.println("======Courses=Included======= ");
-            System.out.println("-------------------------------------------");
+            System.out.println("============================= ");
+            System.out.println("    Core Courses");
             programList.get(i).printCourseDetails();
-            System.out.println("-------------------------------------------");
+            System.out.println("    Specialization Courses");
+            programList.get(i).printSpecialCourseDetails();
         }
         System.out.println("=============================");
     }
 
-
+    /*
+     * Assign courses to certain programs based on program faculty and
+     * course type
+     */
     private void addCoursesToProgram(){
         for(int i = 0; i< programList.size(); i++){
             programList.get(i).addCourses();
         }
     }
+
+
 
 
 }

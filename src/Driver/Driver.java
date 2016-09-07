@@ -17,6 +17,10 @@ public class Driver {
     private String dob;
     private String programCode;
 
+    /*
+     * function to create student login account, i.e their
+     * username and password
+     */
     public String createStudentLogin(){
 
         try
@@ -48,6 +52,9 @@ public class Driver {
 
     }
 
+    /*
+     * Create student profile/information
+     */
     public void createStudent(String existingID){
         Scanner reader = new Scanner(System.in);
         //student profile is create. Name+ DOB + program
@@ -74,6 +81,9 @@ public class Driver {
 
     }
 
+    /*
+     * Creates a Program which includes, program code, ver no, credits to complete
+     */
     public void createProgram(){
         try{
 
@@ -83,7 +93,7 @@ public class Driver {
 
             System.out.println("Creating a new program");
             String facultyChoice = schoolFaculty();
-            System.out.println("Program code");
+            System.out.println("Program code [numbers only]");
             String programCode = facultyChoice + reader.nextLine();
 
             System.out.println("Version number");
@@ -108,6 +118,9 @@ public class Driver {
 
     }
 
+    /*
+     * Appent student information to an external text file
+     */
     private void writeToFile(Student student){
 
         try
@@ -128,6 +141,9 @@ public class Driver {
     }
 
 
+    /*
+     * Returns program type (i.e Bachelors ect)
+     */
     private String programType(){
         while(true) {
             System.out.println("\nProgram Type:");
@@ -154,6 +170,10 @@ public class Driver {
         }
     }
 
+    /*
+     * Returns Faculty of Program.
+     * Every program will start with Facaulty number (i.e SS/IT/SE/SB)
+     */
     private String schoolFaculty(){
         while(true) {
             System.out.println("\nEnter Faculty of Program:");
@@ -181,9 +201,12 @@ public class Driver {
 
     }
 
+    /*
+     * Choose whether program will be active or inactive
+     */
     private String status(){
         while(true) {
-            System.out.println("\nEnter Faculty of Program:");
+            System.out.println("\nEnter Program status:");
             System.out.println("\n1. Active");
             System.out.println("2. Inactive");
             int choice = getInput(2);
@@ -200,11 +223,14 @@ public class Driver {
         }
     }
 
+    /*
+     * Tests whether choice entered at menu selection is valid
+     */
     private int getInput(int numberofChoices){
         int choice = -1;
         Scanner input = new Scanner(System.in);
 
-        while( choice <0 || choice >= numberofChoices){										// catches exception if not a number between 0 and 12.
+        while( choice <0 || choice >= numberofChoices){			// catches exception if not a number between 0 and 12.
             try {
                 System.out.print("\nEnter Your Choice: ");
                 choice = Integer.parseInt(input.nextLine());

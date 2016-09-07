@@ -18,7 +18,9 @@ import java.util.ArrayList;
 
 public class ProgramCourses {
 
+    //information relating to/contained in Programs
     private String programCode;
+    private String programName;
     private String programVersion;
     private int creditsNeeded;
     private String programType;
@@ -27,8 +29,9 @@ public class ProgramCourses {
     ArrayList<Courses> courseList =  new ArrayList<Courses>();
 
 
-    public ProgramCourses(String programCode, String programVersion, int creditsNeeded, String programType, boolean status){
+    public ProgramCourses(String programCode, String programName, String programVersion, int creditsNeeded, String programType, boolean status){
         this.programCode = programCode;
+        this.programName = programName;
         this.programVersion = programVersion;
         this.creditsNeeded = creditsNeeded;
         this.programType = programType;
@@ -38,6 +41,14 @@ public class ProgramCourses {
 
     public String getProgramCode(){
         return programCode;
+    }
+
+    public String getProgramName(){
+        return programName;
+    }
+
+    public String getProgramType(){
+        return programType;
     }
 
     public String getStatus(){
@@ -51,6 +62,9 @@ public class ProgramCourses {
 
     }
 
+    /*
+     * Assign specific courses to a certain program depending on program type
+     */
     public void addCourses(){
         BufferedReader br;
         try {
@@ -69,17 +83,18 @@ public class ProgramCourses {
 
 
                     Courses course = new Courses(courseCode, courseName, creditsEarned, programLink );
-                    if(programCode.contains(course.getProgramLink())){
+                    if(programCode.contains(course.getProgramLink())){ // checks
                         courseList.add(course);
 
                     }
 
                 }
 
-
+            //runs out of line error
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            //Error if file cannot be found
         } catch (FileNotFoundException e) {
             System.out.println(e);
             e.printStackTrace();
@@ -87,6 +102,7 @@ public class ProgramCourses {
 
     }
 
+    //retrieves core courses associated to program to print
     public void printCourseDetails(){
         for(int i = 0; i< courseList.size(); i++){
             courseList.get(i).printCourse();
@@ -94,6 +110,17 @@ public class ProgramCourses {
         }
     }
 
+    //retrieves specialization courses associated to program to print
+    public void printSpecialCourseDetails(){
+        for(int i = 0; i< courseList.size(); i++){
+            courseList.get(i).printSpecialCourses();
+
+        }
+    }
+
+    /*
+     * concatonate everything together
+     */
     public String toString(){
         return programCode + ":" + programVersion + ":" + Integer.toString(creditsNeeded) + ":" + programType + ":" + getStatus();
 

@@ -1,7 +1,8 @@
-COSC123:Algorithms:6:IT
-BIS103:Accounting:6:SB
-COSC321:Java:6:IT
-COSC555:Python:6:IT
-COSC666:C++:6:IT
-COSC777:C#:6:IT
-SCI444:Biology:6:SS
+COSC123:Discrete Structures in Computing:12:IT
+BIS103:Introduction to Accounting:12:SB
+COSC321:Introduction to Java:12:IT
+COSC555:Introduction to Python:12:IT
+COSC666:Introduction to C++:12:IT
+COSC777:Introduction to C#:12:IT
+SCI444:Genetics & the Evolution of Life:12:SS
+COSC666:Introduction to C++:12:SS

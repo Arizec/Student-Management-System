@@ -1,5 +1,6 @@
-IT1023:1:48:Bachelor:Active
-SB1224:2:45:Postgrad:Active
-SS1532:2:45:Bachelor:Active
-SB626:1:47:Bachelor:Active
-SS131313:1:323:Bachelor:Active
+IT1023:Information Systems:1:48:Bachelor:Active
+SB1224:Science:2:45:Postgrad:Active
+SS1532:Medicine:2:45:Bachelor:Active
+SB626:Business:1:47:Bachelor:Active
+SS131313:Biomed:1:323:Bachelor:Active
+SB0001:Commerce:1:88:Bachelor:Active

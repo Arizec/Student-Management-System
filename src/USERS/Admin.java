@@ -8,6 +8,7 @@ import java.io.*;
  */
 public class Admin {
 
+	// information/details related to a Student
 	private String studentID;
 	private String fullName;
 	private String dob;
@@ -21,7 +22,10 @@ public class Admin {
 		this.dob = dob;
 	}
 
-  
+
+	/*
+	 *  Create Student login information, their password and username
+	 */
 	public String createStudentLogin(){
 
 		try
@@ -39,6 +43,7 @@ public class Admin {
 			System.out.println("Create Student Password");
 			String password = reader.nextLine();
 
+			//concatonates username and password together
 			String logindetails = studentID + ":" + password;
 			fw.write("\n");
 			fw.write(logindetails);//appends the string to the file
@@ -55,6 +60,9 @@ public class Admin {
 
 	}
 
+	/*
+	 * Create student details
+	 */
 	public void createStudent(String existingID){
 		Scanner reader = new Scanner(System.in);
 		//student profile is create. Name+ DOB + program
@@ -68,6 +76,7 @@ public class Admin {
 			}
 		}
 
+		// once valid, continue
 		System.out.println("Enter student name: ");
 		String studentName = reader.nextLine();
 		System.out.println("Enter DOB: ");
@@ -76,11 +85,15 @@ public class Admin {
 		String programCode = reader.nextLine();
 
 		Student student = new Student(existingID, studentName, programCode, DOB);
+		//writes to external file containing student information/details
 		writeToFile(student);
 
 
 	}
 
+	/*
+	 *  Admin enters details needed to create a new program
+	 */
 	public void createProgram(){
 		  try{
 
@@ -118,6 +131,9 @@ public class Admin {
 
 	}
 
+	/*
+	 * Student information is appended to external text file
+	 */
 	private void writeToFile(Student student){
 
 		try
