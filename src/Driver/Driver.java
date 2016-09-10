@@ -17,11 +17,11 @@ public class Driver {
     private String fullName;
     private String programCode;
     private String dob;
+
+    private int creditsCompleted;
     
 	ArrayList<ProgramCourses> programList =  new ArrayList<ProgramCourses>();
 	ArrayList<Student> studentList =  new ArrayList<Student>();
-
-    private int creditsCompleted;
 
     /*
      * To see if a student is has enough credits to graduate
@@ -56,10 +56,16 @@ public class Driver {
                     String studentName = studentTxt[1];
                     String studentProgram = studentTxt[2];
                     String DOB = studentTxt[3];
-                    String credits = studentTxt[4];
+                    int credits = Integer.parseInt(studentTxt[4]);
                     
                     if(existingID.equals(ID)){
-                    	System.out.println("Student Name is: " + studentName);
+                    	System.out.println("Hi " + studentName+"! Here are your "
+                    			+ "current details");
+                    	
+                    	System.out.println("Program: " + studentProgram);
+                    	System.out.println("DOB: " + DOB);
+                    	System.out.println("Credits completed: " + credits);
+                    	
                     }
                 }
     
@@ -72,7 +78,6 @@ public class Driver {
             e.printStackTrace();
         }
 
-    
     	
     }
     
