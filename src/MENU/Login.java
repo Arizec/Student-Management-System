@@ -30,7 +30,8 @@ public class Login {
 
 
                 if(username.charAt(0) == 's'){
-                    studentMenu.runMenu();
+                	String studentID=username;
+                	studentMenu.runMenu(studentID);
                 }
                 else if(username.charAt(0) == 'a'){
 
