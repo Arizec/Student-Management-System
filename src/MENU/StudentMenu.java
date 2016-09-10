@@ -4,12 +4,14 @@ import MENU.*;
 
 import java.util.Scanner;
 
+import Driver.Driver;
+
 
 /**
  * Created by Martin on 2/09/2016.
  */
 public class StudentMenu {
-
+    Driver driverClass = new Driver();
 
     private void printHeader(){
 
@@ -36,7 +38,9 @@ public class StudentMenu {
                 break;
             case 3:
                 System.out.println("Graduate");
+                driverClass.applyToGraduate();
                 break;
+                
             default:
                 System.out.println("4");
                 break;
