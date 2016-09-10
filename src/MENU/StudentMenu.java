@@ -35,6 +35,8 @@ public class StudentMenu {
                 break;
             case 2:
                 System.out.println("View Progress");
+                String studentID= "s3605767";
+                driverClass.viewProgress(studentID);
                 break;
             case 3:
                 System.out.println("Graduate");
