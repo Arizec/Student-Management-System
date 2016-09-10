@@ -60,7 +60,6 @@ public class Driver {
                     	
                     	else if(studentProgram.charAt(0) == 'M'){
                     		creditsCompleted = 192; //Masters: 2 year program
-                    		System.out.println("credits completed is: "+creditsCompleted);
                     	}
                     	
                     	//else just set to 3 years as placeholder
