@@ -12,7 +12,7 @@ public class Login {
         AdminMenu adminMenu = new AdminMenu();
         CoordinatorMenu coMenu = new CoordinatorMenu();
         FacultyMenu facMenu = new FacultyMenu();
-        StudentMenu studentMenu = new StudentMenu();
+
 
         Scanner reader = new Scanner(System.in);
 
@@ -30,8 +30,8 @@ public class Login {
 
 
                 if(username.charAt(0) == 's'){
-                	String studentID=username;
-                	studentMenu.runMenu(studentID);
+                    StudentMenu studentMenu = new StudentMenu(username);
+                	studentMenu.runMenu();
                 }
                 else if(username.charAt(0) == 'a'){
 

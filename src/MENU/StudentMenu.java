@@ -12,6 +12,13 @@ import Driver.Driver;
  */
 public class StudentMenu {
     Driver driverClass = new Driver();
+    private String studentID;
+
+    public StudentMenu(String studentID){
+        this.studentID = studentID;
+
+
+    }
 
     private void printHeader(){
 
@@ -28,19 +35,19 @@ public class StudentMenu {
         System.out.println("3. Graduate");
     }
 
-    private void performChoices(int choice, String studentID){
-        String ID= studentID;
+    private void performChoices(int choice){
+
         switch (choice){
             case 1:
                 System.out.println("View Result");
                 break;
             case 2:
                 System.out.println("View Progress");
-                driverClass.viewProgress(ID);
+                driverClass.viewProgress(studentID);
                 break;
             case 3:
                 System.out.println("Graduate");
-                driverClass.applyToGraduate(ID);
+                driverClass.applyToGraduate(studentID);
                 break;
                 
             default:
@@ -67,12 +74,12 @@ public class StudentMenu {
     }
 
 
-    public void runMenu(String studentID){
+    public void runMenu(){
 
         printHeader();
         menuOptions();
         int choice = getInput();
-        performChoices(choice, studentID);
+        performChoices(choice);
 
     }
 

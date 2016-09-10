@@ -87,7 +87,7 @@ public class Driver {
                     String studentName = studentTxt[1];
                     String studentProgram = studentTxt[2];
                     String DOB = studentTxt[3];
-                    int credits = Integer.parseInt(studentTxt[4]);
+                    String credits = studentTxt[4];
                     
                     if(existingID.equals(ID)){
                     	System.out.println("Hi " + studentName+"! Here are your "
