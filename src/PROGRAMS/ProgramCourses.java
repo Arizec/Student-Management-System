@@ -38,6 +38,9 @@ public class ProgramCourses {
         this.status = status;
     }
 
+    public int getCreditsNeeded(){
+        return creditsNeeded;
+    }
 
     public String getProgramCode(){
         return programCode;
