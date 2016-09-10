@@ -2,8 +2,7 @@ package Driver;
 
 import USERS.Student;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,12 +12,15 @@ import PROGRAMS.ProgramCourses;
  * Created by Martin on 6/09/2016.
  */
 public class Driver {
-	ArrayList<ProgramCourses> programList =  new ArrayList<ProgramCourses>();
-
+	
     private String studentID;
     private String fullName;
-    private String dob;
     private String programCode;
+    private String dob;
+    
+	ArrayList<ProgramCourses> programList =  new ArrayList<ProgramCourses>();
+	ArrayList<Student> studentList =  new ArrayList<Student>();
+
     private int creditsCompleted;
 
     /*
@@ -36,6 +38,42 @@ public class Driver {
     	
     	else
     		System.out.println("Sorry, you are not able to graduate");
+    }
+    
+    //view student progress
+    public void viewProgress(String existingID){
+    	BufferedReader br;
+        try {
+            br = new BufferedReader(new FileReader("studentList.txt"));
+            try {
+                String x;
+                
+                while ( (x = br.readLine()) != null ) {
+                	
+                	
+                    String studentTxt[] = x.split(":", 5);
+                    String ID = studentTxt[0];
+                    String studentName = studentTxt[1];
+                    String studentProgram = studentTxt[2];
+                    String DOB = studentTxt[3];
+                    String credits = studentTxt[4];
+                    
+                    if(existingID.equals(ID)){
+                    	System.out.println("Student Name is: " + studentName);
+                    }
+                }
+    
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
+
+    
+    	
     }
     
     /*
@@ -61,6 +99,7 @@ public class Driver {
             fw.write("\r\n");
             fw.write(logindetails);//appends the string to the file
             fw.close();
+            
             return studentID;
 
         }
@@ -73,6 +112,10 @@ public class Driver {
 
     }
 
+    
+    public String returnID(String existingID){
+    	return existingID;
+    }
     /*
      * Create student profile/information
      */
