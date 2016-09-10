@@ -28,15 +28,15 @@ public class StudentMenu {
         System.out.println("3. Graduate");
     }
 
-    private void performChoices(int choice){
+    private void performChoices(int choice, String studentID){
         switch (choice){
             case 1:
                 System.out.println("View Result");
                 break;
             case 2:
                 System.out.println("View Progress");
-                String studentID= "s3605767";
-                driverClass.viewProgress(studentID);
+                String ID= studentID;
+                driverClass.viewProgress(ID);
                 break;
             case 3:
                 System.out.println("Graduate");
@@ -66,12 +66,13 @@ public class StudentMenu {
         return choice;
     }
 
-    public void runMenu(){
+
+    public void runMenu(String studentID){
 
         printHeader();
         menuOptions();
         int choice = getInput();
-        performChoices(choice);
+        performChoices(choice, studentID);
 
     }
 
