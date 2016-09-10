@@ -4,19 +4,40 @@ import USERS.Student;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import PROGRAMS.ProgramCourses;
 
 /**
  * Created by Martin on 6/09/2016.
  */
 public class Driver {
-
+	ArrayList<ProgramCourses> programList =  new ArrayList<ProgramCourses>();
 
     private String studentID;
     private String fullName;
     private String dob;
     private String programCode;
+    private int creditsCompleted;
 
+    /*
+     * To see if a student is has enough credits to graduate
+     */
+    public void applyToGraduate(){
+    	for(int i = 0; i< programList.size(); i++){
+    		creditsCompleted = programList.get(i).getCreditsNeeded();
+    	}
+    	
+    	//48 is a placeholder atm. 48 supposed to represent student credits earned
+    	if(creditsCompleted == 48){
+    		System.out.println("Congratulations! You are able to graduate");
+    	}
+    	
+    	else
+    		System.out.println("Sorry, you are not able to graduate");
+    }
+    
     /*
      * function to create student login account, i.e their
      * username and password
