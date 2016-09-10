@@ -1,1 +1,2 @@
-
+COSC101:Discrete Structures in Computing:12:IT
+COSC102:Introduction to Computer Systems and Platform Technologies:12:IT
