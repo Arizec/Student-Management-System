@@ -18,7 +18,6 @@ public class Driver {
     private String programCode;
     private String dob;
 
-    private int creditsCompleted;
     
 	ArrayList<ProgramCourses> programList =  new ArrayList<ProgramCourses>();
 	ArrayList<Student> studentList =  new ArrayList<Student>();
@@ -26,21 +25,53 @@ public class Driver {
     /*
      * To see if a student is has enough credits to graduate
      */
-    public void applyToGraduate(){
-    	for(int i = 0; i< programList.size(); i++){
-    		creditsCompleted = programList.get(i).getCreditsNeeded();
-    	}
-    	
-    	//48 is a placeholder atm. 48 supposed to represent student credits earned
-    	if(creditsCompleted == 48){
-    		System.out.println("Congratulations! You are able to graduate");
-    	}
-    	
-    	else
-    		System.out.println("Sorry, you are not able to graduate");
+    public void applyToGraduate(String existingID){
+    	BufferedReader br;
+        try {
+            br = new BufferedReader(new FileReader("studentList.txt"));
+            try {
+                String x;
+                
+                while ( (x = br.readLine()) != null ) {
+                
+                	
+                    String studentTxt[] = x.split(":", 5);
+                    String ID = studentTxt[0];
+                    int credits = Integer.parseInt(studentTxt[4]);
+                    //credits completed= program course credits required
+                    //288 is current placeholder
+                    int creditsCompleted= 288;
+                    if(existingID.equals(ID)){
+                    	
+                    	if(credits != creditsCompleted){
+                            System.out.println("\nCredits completed: "+ credits);
+                            System.out.println("Credits needed to graduate: "+ creditsCompleted);
+                    		System.out.println("Sorry, you are not able to graduate");
+                    		break;
+                    	}
+                    	
+                    	else
+                            System.out.println("\nCredits completed: "+ credits);
+                            System.out.println("Credits needed to graduate: "+ creditsCompleted);
+                    		System.out.println("Congratulations, youa are able to graduate!");
+                    
+                    }
+                    }
+                	
+                
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println(e);
+                e.printStackTrace();
+            }
+                    
     }
     
-    //view student progress
+    /*
+     * View student progress
+     */
     public void viewProgress(String existingID){
     	BufferedReader br;
         try {
