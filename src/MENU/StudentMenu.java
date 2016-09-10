@@ -29,18 +29,18 @@ public class StudentMenu {
     }
 
     private void performChoices(int choice, String studentID){
+        String ID= studentID;
         switch (choice){
             case 1:
                 System.out.println("View Result");
                 break;
             case 2:
                 System.out.println("View Progress");
-                String ID= studentID;
                 driverClass.viewProgress(ID);
                 break;
             case 3:
                 System.out.println("Graduate");
-                driverClass.applyToGraduate();
+                driverClass.applyToGraduate(ID);
                 break;
                 
             default:
