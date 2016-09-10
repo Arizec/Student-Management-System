@@ -37,13 +37,13 @@ public class Driver {
                 	
                     String studentTxt[] = x.split(":", 5);
                     String ID = studentTxt[0];
-                    int credits = Integer.parseInt(studentTxt[4]);
+                    String credits = studentTxt[4];
                     //credits completed= program course credits required
                     //288 is current placeholder
                     int creditsCompleted= 288;
                     if(existingID.equals(ID)){
                     	
-                    	if(credits != creditsCompleted){
+                    	if(Integer.parseInt(credits) != creditsCompleted){
                             System.out.println("\nCredits completed: "+ credits);
                             System.out.println("Credits needed to graduate: "+ creditsCompleted);
                     		System.out.println("Sorry, you are not able to graduate");
