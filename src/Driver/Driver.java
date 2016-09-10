@@ -28,21 +28,47 @@ public class Driver {
     public void applyToGraduate(String existingID){
     	BufferedReader br;
         try {
+        	//read external text file containing student info
             br = new BufferedReader(new FileReader("studentList.txt"));
             try {
                 String x;
                 
+                //read all lines in file
                 while ( (x = br.readLine()) != null ) {
                 
                 	
                     String studentTxt[] = x.split(":", 5);
                     String ID = studentTxt[0];
+                    String studentProgram = studentTxt[2];
                     String credits = studentTxt[4];
-                    //credits completed= program course credits required
-                    //288 is current placeholder
-                    int creditsCompleted= 288;
+                    
+                    int creditsCompleted = 0; //initialise credits
+                    
+                  //print credits if studentID in student list file
+                  //matches ID of student logged in
                     if(existingID.equals(ID)){
+                    	if(studentProgram.charAt(0) == 'B'){
+                    		creditsCompleted = 288; //Bachelors: 3 year program
+                    	}
+                    	else if(studentProgram.charAt(0) == 'D'){
+                    		creditsCompleted = 96; //Diploma: 1 year program
+                    	}
                     	
+                    	else if(studentProgram.charAt(0) == 'H'){
+                    		creditsCompleted = 96; //Honours: 1 year program
+                    	}
+                    	
+                    	else if(studentProgram.charAt(0) == 'M'){
+                    		creditsCompleted = 192; //Masters: 3 year program
+                    		System.out.println("credits completed is: "+creditsCompleted);
+                    	}
+                    	
+                    	//else just set to 3 years as placeholder
+                    	else {
+                    		creditsCompleted = 288;
+                    	}
+                 
+                    	//Credit points not met. Student not able to graduate
                     	if(Integer.parseInt(credits) != creditsCompleted){
                             System.out.println("\nCredits completed: "+ credits);
                             System.out.println("Credits needed to graduate: "+ creditsCompleted);
@@ -50,12 +76,13 @@ public class Driver {
                     		break;
                     	}
                     	
+                    	//Credit points met. Student is able to graduate
                     	else
                             System.out.println("\nCredits completed: "+ credits);
                             System.out.println("Credits needed to graduate: "+ creditsCompleted);
                     		System.out.println("Congratulations, youa are able to graduate!");
                     
-                    }
+                    	}
                     }
                 	
                 
@@ -75,10 +102,12 @@ public class Driver {
     public void viewProgress(String existingID){
     	BufferedReader br;
         try {
+        	//read external text file containing student info
             br = new BufferedReader(new FileReader("studentList.txt"));
             try {
                 String x;
                 
+                //read all lines in file
                 while ( (x = br.readLine()) != null ) {
                 	
                 	
@@ -89,6 +118,8 @@ public class Driver {
                     String DOB = studentTxt[3];
                     String credits = studentTxt[4];
                     
+                    //if ID in file matches ID of student logged in
+                    //print their current details
                     if(existingID.equals(ID)){
                     	System.out.println("Hi " + studentName+"! Here are your "
                     			+ "current details");
