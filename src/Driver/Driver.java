@@ -162,7 +162,7 @@ public class Driver {
             String password = reader.nextLine();
 
             String logindetails = studentID + ":" + password;
-            fw.write("\r\n");
+            fw.write("\r");
             fw.write(logindetails);//appends the string to the file
             fw.close();
             
