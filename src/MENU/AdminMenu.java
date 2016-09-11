@@ -19,8 +19,8 @@ public class AdminMenu {
     private void printHeader(){
 
         System.out.println("\n+--------------------------------+");
-        System.out.println("|          Study Progress        |");
-        System.out.println("|             System             |");
+        System.out.println("|          System Admin          |");
+        System.out.println("|             Menu               |");
         System.out.println("+--------------------------------+");
 
     }
@@ -31,8 +31,10 @@ public class AdminMenu {
     private void menuOptions(){
         System.out.println("\n1. Create Student");
         System.out.println("2. Create Program");
-        System.out.println("3. View Program Details");
-        System.out.println("4. Exit");
+        System.out.println("3. View Program(s)");
+        System.out.println("4. Define Program(s)");;
+        System.out.println("5. Upload Student Enrolment(s)");
+        System.out.println("6. Exit");
     }
 
     /*
@@ -93,7 +95,7 @@ public class AdminMenu {
         int choice = -1;
         Scanner input = new Scanner(System.in);
 
-        while( choice <0 || choice > 5){										// catches exception if not a number between 0 and 12.
+        while( choice <0 || choice > 6){										// catches exception if not a number between 0 and 12.
             try {
                 //User enteres their choice
                 System.out.print("\nEnter Your Choice: ");
