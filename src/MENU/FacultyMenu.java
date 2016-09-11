@@ -2,11 +2,14 @@ package MENU;
 
 import java.util.Scanner;
 
+import Driver.Driver;
+
 /**
  * Created by Martin on 2/09/2016.
  */
 public class FacultyMenu {
 
+    Driver driverClass = new Driver();
     private void printHeader(){
 
         System.out.println("\n+--------------------------------+");
@@ -17,9 +20,8 @@ public class FacultyMenu {
     }
 
     private void menuOptions(){
-        System.out.println("\n1. View Results");
-        System.out.println("2. View Progress");
-        System.out.println("3. Graduate");
+        System.out.println("\n1. View Student Results/Progress");
+        System.out.println("2. Graduate a Student");
     }
 
     private void performChoices(int choice){
@@ -27,9 +29,13 @@ public class FacultyMenu {
             case 1:
                 System.out.println("View Result of Student(s)");
                 break;
-
+                
             case 2:
-                break;
+            	Scanner reader = new Scanner(System.in);
+            	System.out.println("Enter ID of student to graduate");
+            	String studentID = reader.nextLine();
+            	driverClass.applyToGraduate(studentID);
+            	break;
             default:
                 System.out.println("4");
                 break;
@@ -41,7 +47,7 @@ public class FacultyMenu {
         int choice = -1;
         Scanner input = new Scanner(System.in);
 
-        while( choice <0 || choice > 2){										// catches exception if not a number between 0 and 12.
+        while( choice <0 || choice > 2){			// catches exception if not a number between 0 and 12.
             try {
                 System.out.print("\nEnter Your Choice: ");
                 choice = Integer.parseInt(input.nextLine());
