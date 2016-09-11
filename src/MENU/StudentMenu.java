@@ -32,7 +32,9 @@ public class StudentMenu {
     private void menuOptions(){
         System.out.println("\n1. View Results");
         System.out.println("2. View Progress");
-        System.out.println("3. Apply to Graduate");
+        System.out.println("3. View currently enrolled courses");
+        System.out.println("4. Enrol into course(s)");
+        System.out.println("5. Apply to Graduate");
     }
 
     private void performChoices(int choice){
@@ -45,7 +47,14 @@ public class StudentMenu {
                 System.out.println("View Progress");
                 driverClass.viewProgress(studentID);
                 break;
+                
             case 3:
+            	break;
+            	
+            case 4:
+                break;
+            case 5:
+                System.out.println("Graduate");
                 driverClass.applyToGraduate(studentID);
                 break;
                 
@@ -60,7 +69,7 @@ public class StudentMenu {
         int choice = -1;
         Scanner input = new Scanner(System.in);
 
-        while( choice <0 || choice > 3){										// catches exception if not a number between 0 and 12.
+        while( choice <0 || choice > 5){	// catches exception if not a number between 0 and 12.
             try {
                 System.out.print("\nEnter Your Choice: ");
                 choice = Integer.parseInt(input.nextLine());
