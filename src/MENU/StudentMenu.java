@@ -32,7 +32,7 @@ public class StudentMenu {
     private void menuOptions(){
         System.out.println("\n1. View Results");
         System.out.println("2. View Progress");
-        System.out.println("3. Graduate");
+        System.out.println("3. Apply to Graduate");
     }
 
     private void performChoices(int choice){
@@ -46,7 +46,6 @@ public class StudentMenu {
                 driverClass.viewProgress(studentID);
                 break;
             case 3:
-                System.out.println("Graduate");
                 driverClass.applyToGraduate(studentID);
                 break;
                 
