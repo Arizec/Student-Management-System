@@ -84,7 +84,7 @@ public class Admin {
 		System.out.println("Enter Program Code");
 		String programCode = reader.nextLine();
 
-		Student student = new Student(existingID, studentName, programCode, DOB);
+		Student student = new Student(existingID, studentName, programCode, DOB, 0);
 		//writes to external file containing student information/details
 		writeToFile(student);
 

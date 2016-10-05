@@ -113,11 +113,12 @@ public class StudentMenu {
                 while ( (x = br.readLine()) != null ) {
 
 
-                    String studentTxt[] = x.split(":", 4);
+                    String studentTxt[] = x.split(":", 5);
                     String ID = studentTxt[0];
                     String studentName = studentTxt[1];
                     String studentProgram = studentTxt[2];
                     String DOB = studentTxt[3];
+                    int credit = Integer.parseInt(studentTxt[4]);
 
 
 
@@ -128,7 +129,7 @@ public class StudentMenu {
                     //print their current details
                     if(studentID.equals(ID)){
 
-                        Student studentObject = new Student(ID, studentName, studentProgram, DOB);
+                        Student studentObject = new Student(ID, studentName, studentProgram, DOB, credit);
                         studentObject.addCourses();
                         for(int i=0 ; i<4; i++){
 

@@ -54,6 +54,7 @@ public class CoordinatorMenu {
                 break;
             case 4:
                 System.out.println("View Results of Student(s)");
+                driverClass.viewResutlsOfStudent();
 
                 break;
             
@@ -87,7 +88,7 @@ public class CoordinatorMenu {
     }
 
     public void runMenu(){
-
+        driverClass.appendStudent();
         printHeader();
         menuOptions();
         int choice = getInput();

@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.IntSummaryStatistics;
 
 /**
  * Created by Martin on 2/09/2016.
@@ -19,17 +20,19 @@ public class Student {
     private String fullName;
     private String dob;
     private String programCode;
+    private int credit;
 
     ArrayList<Courses> courseList =  new ArrayList<Courses>();
     ArrayList<Courses> coursesEnrolled =  new ArrayList<Courses>();
 
 
 
-    public Student(String studentID, String fullName, String programCode, String dob){
+    public Student(String studentID, String fullName, String programCode, String dob, int credit){
         this.studentID = studentID;
         this.fullName = fullName;
         this.programCode = programCode;
         this.dob = dob;
+        this.credit = credit;
     }
 
     public String getStudentID(){
@@ -53,7 +56,7 @@ public class Student {
     }
 
     public String toString(){
-        return studentID + ":" + fullName + ":" + programCode + ":" + dob;
+        return studentID + ":" + fullName + ":" + programCode + ":" + dob + ":" + Integer.toString(credit);
     }
 
     public void addCourses(){

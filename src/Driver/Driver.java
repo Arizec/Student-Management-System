@@ -23,6 +23,54 @@ public class Driver {
 	ArrayList<Student> studentList =  new ArrayList<Student>();
 
 
+    public void appendStudent(){
+        BufferedReader br;
+        try {
+            //read external text file containing student info
+            br = new BufferedReader(new FileReader("studentList.txt"));
+            try {
+                String x;
+
+                //read all lines in file
+                while ( (x = br.readLine()) != null ) {
+
+
+                    String studentTxt[] = x.split(":", 5);
+                    String ID = studentTxt[0];
+                    String studentName = studentTxt[1];
+                    String studentProgram = studentTxt[2];
+                    String DOB = studentTxt[3];
+                    int credit = Integer.parseInt(studentTxt[4]);
+
+                    Student student = new Student(ID, studentName, studentProgram, DOB, credit);
+                    studentList.add(student);
+
+
+
+
+
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public void viewResutlsOfStudent(){
+        for(int i = 0; i<studentList.size(); i++){
+            System.out.println(studentList.get(i).toString());
+
+        }
+
+    }
+
 
 /*
  * Graduate a student
@@ -254,7 +302,8 @@ public class Driver {
         System.out.println("Enter Program Code");
         String programCode = reader.nextLine();
 
-        Student student = new Student(existingID, studentName, programCode, DOB);
+
+        Student student = new Student(existingID, studentName, programCode, DOB, 0);
         writeToFile(student);
 
 
