@@ -103,7 +103,7 @@ public class ProgramDriver {
      * Assign courses to certain programs based on program faculty and
      * course type
      */
-    private void addCoursesToProgram(){
+    public void addCoursesToProgram(){
         for(int i = 0; i< programList.size(); i++){
             programList.get(i).addCourses();
         }
@@ -175,4 +175,8 @@ public class ProgramDriver {
         }
         return choice;
     }
+
+
+
+
 }

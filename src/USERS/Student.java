@@ -1,6 +1,8 @@
 package USERS;
 
+import Driver.ProgramDriver;
 import PROGRAMS.Courses;
+import PROGRAMS.ProgramCourses;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -18,7 +20,9 @@ public class Student {
     private String dob;
     private String programCode;
 
+    ArrayList<Courses> courseList =  new ArrayList<Courses>();
     ArrayList<Courses> coursesEnrolled =  new ArrayList<Courses>();
+
 
 
     public Student(String studentID, String fullName, String programCode, String dob){
@@ -52,7 +56,7 @@ public class Student {
         return studentID + ":" + fullName + ":" + programCode + ":" + dob;
     }
 
-    public void addCourses(String courseCodegiven){
+    public void addCourses(){
         BufferedReader br;
         try {
             br = new BufferedReader(new FileReader("courses.txt"));
@@ -68,9 +72,12 @@ public class Student {
                     String programLink = programTxt[3];
 
 
-                    if(courseCode.equals(courseCodegiven)){ // checks
-                        Courses course = new Courses(courseCode, courseName, creditsEarned, programLink );
-                        coursesEnrolled.add(course);
+
+                    Courses course = new Courses(courseCode, courseName, creditsEarned, programLink );
+                    if(programCode.contains(course.getProgramLink())){ // checks
+
+                        courseList.add(course);
+
 
                     }
 
@@ -85,6 +92,51 @@ public class Student {
             System.out.println(e);
             e.printStackTrace();
         }
+
+    }
+
+    public void printCourses(){
+        for(int i = 0; i < courseList.size(); i++){
+            System.out.println(courseList.get(i).toString());
+        }
+
+    }
+
+    public boolean enrolIntoCourse(String courseID){
+
+        for(int i = 0; i < courseList.size(); i++){
+            if(courseID.equals(courseList.get(i).getCourseCode())){
+                if(!coursesEnrolled.isEmpty()){
+                    for(int j = 0; j<coursesEnrolled.size(); j++){
+                        if(coursesEnrolled.get(j).getCourseCode().equals(courseID)){
+                            System.out.println("Already Enrolled Into Course");
+                            return false;
+                        }else{
+                            coursesEnrolled.add(courseList.get(i));
+                            System.out.println("Course Enrolled");
+                            return true;
+
+                        }
+
+                    }
+
+                }else{
+
+                    coursesEnrolled.add(courseList.get(i));
+                    System.out.println("Course Enrolled");
+                    return true;
+                }
+
+
+            }
+        }
+        System.out.println("Incorrect Course ID");
+        return false;
+    }
+
+
+    public void completeCourses(Courses course){
+
 
     }
 

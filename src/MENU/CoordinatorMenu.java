@@ -54,6 +54,7 @@ public class CoordinatorMenu {
                 break;
             case 4:
                 System.out.println("View Results of Student(s)");
+
                 break;
             
             case 5:
