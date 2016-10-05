@@ -22,6 +22,41 @@ public class Driver {
 	ArrayList<ProgramCourses> programList =  new ArrayList<ProgramCourses>();
 	ArrayList<Student> studentList =  new ArrayList<Student>();
 
+
+
+/*
+ * Graduate a student
+ */
+
+    public void graduateStudent(){
+        BufferedReader br;
+        try {
+            //read external text file containing student info
+            br = new BufferedReader(new FileReader("graduate.txt"));
+            try {
+                String x;
+
+                //read all lines in file
+                while ( (x = br.readLine()) != null ) {
+                    System.out.println(x);
+
+
+
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
+
+    }
+
+
+
     /*
      * To see if a student is has enough credits to graduate
      */
@@ -30,6 +65,7 @@ public class Driver {
         try {
         	//read external text file containing student info
             br = new BufferedReader(new FileReader("studentList.txt"));
+
             try {
                 String x;
                 
@@ -79,9 +115,18 @@ public class Driver {
                     	else
                             System.out.println("\nCredits completed: "+ credits);
                             System.out.println("Credits needed to graduate: "+ creditsCompleted);
-                    		System.out.println("Congratulations, youa are able to graduate!");
-                    
-                    	}
+                    		System.out.println("Congratulations, you are able to graduate!");
+
+                            String filename= "graduate.txt";
+                            FileWriter fw = new FileWriter(filename,true);
+
+                            fw.write("\r");
+                            fw.write(existingID);//appends the string to the file
+                            fw.close();
+
+
+
+                        }
                     }
                 	
                 
@@ -94,6 +139,8 @@ public class Driver {
             }
                     
     }
+
+
     
     /*
      * View student progress
@@ -112,11 +159,13 @@ public class Driver {
                 	
                     String studentTxt[] = x.split(":", 5);
                     String ID = studentTxt[0];
-                    String studentName = studentTxt[1];
                     String studentProgram = studentTxt[2];
-                    String DOB = studentTxt[3];
                     String credits = studentTxt[4];
-                    
+
+                    String studentName = studentTxt[1];
+
+                    String DOB = studentTxt[3];
+
                     //if ID in file matches ID of student logged in
                     //print their current details
                     if(existingID.equals(ID)){
@@ -314,15 +363,9 @@ public class Driver {
             int choice = getInput(4);
 
             switch(choice){
-                case 1:
-                    return "SS";
-                case 2:
-                    return "SB";
-                case 3:
+                default:
                     return "IT";
 
-                case 4:
-                    return "SE";
 
             }
 

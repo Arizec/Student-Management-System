@@ -29,10 +29,10 @@ public class AdminMenu {
      * Prints menu options available to the user
      */
     private void menuOptions(){
-        System.out.println("\n1. Create Student");
-        System.out.println("2. Create Program");
-        System.out.println("3. View Program(s)");
-        System.out.println("4. Define Program(s)");;
+        System.out.println("\n1. Create Student Account(s)"); //done
+        System.out.println("2. Create Program"); //done
+        System.out.println("3. View Program(s)"); //done
+        System.out.println("4. Define Program(s)");
         System.out.println("5. Upload Student Enrolment(s)");
         System.out.println("6. Exit");
     }
@@ -60,7 +60,6 @@ public class AdminMenu {
 
             //creates program
             case 2:
-                driverClass.createProgram();
                 break;
 
             //View program details
@@ -73,7 +72,10 @@ public class AdminMenu {
 
             //exit the program
             case 4:
-                System.out.println("Exit");
+                System.out.println("Enter Program Code to Define");
+                Scanner code = new Scanner(System.in);
+                System.out.println(programClass.defineProgram(code.nextLine()));
+
                 break;
 
             //if invalid selection exits the menu

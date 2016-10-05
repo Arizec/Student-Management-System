@@ -54,6 +54,22 @@ public class ProgramCourses {
         return programType;
     }
 
+
+    public void setProgramName(String newprogramName){
+        programName = newprogramName;
+
+    }
+
+    public void setProgramCode(String newprogramCode){
+        programCode = newprogramCode;
+
+    }
+
+    public void setProgramCredit(int newprogramCredit){
+        creditsNeeded = newprogramCredit;
+
+    }
+
     public String getStatus(){
         if(status == true){
             return "Active";

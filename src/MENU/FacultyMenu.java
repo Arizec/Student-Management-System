@@ -21,7 +21,7 @@ public class FacultyMenu {
 
     private void menuOptions(){
         System.out.println("\n1. View Student Results/Progress");
-        System.out.println("2. Graduate a Student");
+        System.out.println("2. Graduate Student(s)");
     }
 
     private void performChoices(int choice){
@@ -31,11 +31,10 @@ public class FacultyMenu {
                 break;
                 
             case 2:
-            	Scanner reader = new Scanner(System.in);
-            	System.out.println("Enter ID of student to graduate");
-            	String studentID = reader.nextLine();
-            	driverClass.applyToGraduate(studentID);
-            	break;
+                System.out.println("Students graduated are: ");
+                driverClass.graduateStudent();
+
+                break;
             default:
                 System.out.println("4");
                 break;

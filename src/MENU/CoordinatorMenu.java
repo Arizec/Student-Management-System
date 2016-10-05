@@ -22,11 +22,10 @@ public class CoordinatorMenu {
 
     private void menuOptions(){
         System.out.println("\n1. Define Program(s)");
-        System.out.println("2. Add Student Account(s)");
+        System.out.println("2. Create Student Account(s)"); //done
         System.out.println("3. Upload Student Enrolment(s)");
-        System.out.println("4. Enter Student Information");
-        System.out.println("5. View Results of Student(s)");
-        System.out.println("6. Graduate Student(s)");
+        System.out.println("4. View Results of Student(s)");
+        System.out.println("5. Graduate Student(s)"); //done
     }
 
     private void performChoices(int choice){
@@ -54,13 +53,13 @@ public class CoordinatorMenu {
                 System.out.println("Upload Enrolment(s)");
                 break;
             case 4:
-                System.out.println("Enter Student Information");
-                break;
-            case 5:
                 System.out.println("View Results of Student(s)");
                 break;
             
-            case 6:
+            case 5:
+                System.out.println("Students graduated are: ");
+                driverClass.graduateStudent();
+
             	break;
             	
             default:

@@ -20,6 +20,8 @@ public class StudentMenu {
 
     }
 
+
+
     private void printHeader(){
 
         System.out.println("\n+--------------------------------+");
@@ -31,10 +33,8 @@ public class StudentMenu {
 
     private void menuOptions(){
         System.out.println("\n1. View Results");
-        System.out.println("2. View Progress");
-        System.out.println("3. View currently enrolled courses");
-        System.out.println("4. Enrol into course(s)");
-        System.out.println("5. Apply to Graduate");
+        System.out.println("2. View current enrolments");
+        System.out.println("3. Apply to Graduate"); //done
     }
 
     private void performChoices(int choice){
@@ -44,16 +44,11 @@ public class StudentMenu {
                 System.out.println("View Result");
                 break;
             case 2:
-                System.out.println("View Progress");
+                System.out.println("View current enrolment");
                 driverClass.viewProgress(studentID);
                 break;
-                
+
             case 3:
-            	break;
-            	
-            case 4:
-                break;
-            case 5:
                 System.out.println("Graduate");
                 driverClass.applyToGraduate(studentID);
                 break;
@@ -83,6 +78,8 @@ public class StudentMenu {
 
 
     public void runMenu(){
+
+
 
         printHeader();
         menuOptions();
