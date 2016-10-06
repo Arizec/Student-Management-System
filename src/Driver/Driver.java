@@ -42,7 +42,7 @@ public class Driver {
                     String DOB = studentTxt[3];
                     int credit = Integer.parseInt(studentTxt[4]);
 
-                    Student student = new Student(ID, studentName, studentProgram, DOB, credit);
+                    Student student = new Student(ID, studentName, studentProgram, DOB, credit, studentProgram.charAt(0));
                     studentList.add(student);
 
 
@@ -63,7 +63,7 @@ public class Driver {
 
     }
 
-    public void viewResutlsOfStudent(){
+    public void viewResultsOfStudent(){
         for(int i = 0; i<studentList.size(); i++){
             System.out.println(studentList.get(i).toString());
 
@@ -303,7 +303,36 @@ public class Driver {
         String programCode = reader.nextLine();
 
 
-        Student student = new Student(existingID, studentName, programCode, DOB, 0);
+        Student student = new Student(existingID, studentName, programCode, DOB, 0, programCode.charAt(0));
+        writeToFile(student);
+
+
+    }
+
+    public void createEnrollment(String existingID){
+        Scanner reader = new Scanner(System.in);
+        //student profile is create. Name+ DOB + program
+
+        System.out.println("\n Now create student profile");
+        while(true){			// forces you to write the correct student ID before you can continue.
+            System.out.println("Re-enter Student ID");
+            String studentID = reader.nextLine();
+            if(existingID.equals(studentID)){
+                break;
+            }
+        }
+
+        System.out.println("Enter student name: ");
+        String studentName = reader.nextLine();
+        System.out.println("Enter DOB: ");
+        String DOB = reader.nextLine();
+        System.out.println("Enter Program Code");
+        String programCode = reader.nextLine();
+
+        System.out.println("Enter credits completed");
+        int credit = reader.nextInt();
+
+        Student student = new Student(existingID, studentName, programCode, DOB, credit, programCode.charAt(0));
         writeToFile(student);
 
 

@@ -1,8 +1,13 @@
 package MENU;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 import Driver.*;
+import USERS.Student;
 
 /**
  * Created by Martin on 1/09/2016.
@@ -78,6 +83,30 @@ public class AdminMenu {
 
                 break;
 
+            case 5:
+                Scanner input = new Scanner(System.in);
+                System.out.println("How many student enrolments would you like to upload?");
+
+                //stores amount of student accounts that admin wants to create
+                int enrolments = input.nextInt();
+
+                int j;
+                //creates as many student accounts according to amount admin entered
+                for(j=0; j <enrolments; j++){
+                    String studentIDcreated = driverClass.createStudentLogin();        // makes sure it uses the studentID it created previously
+                    driverClass.createEnrollment(studentIDcreated);
+                };
+
+                System.out.println("Student enrolments(s) have been successfully uploaded!");
+
+                System.out.println("Enter ID of enrolment you wish to view.");
+                String id = input.nextLine();
+                String test = input.nextLine();
+
+                findID(id);
+                findID(test);
+                break;
+
             //if invalid selection exits the menu
             //is unlikely to occur however
             default:
@@ -136,4 +165,48 @@ public class AdminMenu {
 
 
 
-}
+
+    private void findID(String id) {
+        BufferedReader br;
+        try {
+            //read external text file containing student info
+            br = new BufferedReader(new FileReader("studentList.txt"));
+            try {
+                String x;
+
+                //read all lines in file
+                while ((x = br.readLine()) != null) {
+
+
+                    String studentTxt[] = x.split(":", 5);
+                    String ID = studentTxt[0];
+                    String studentName = studentTxt[1];
+                    String studentProgram = studentTxt[2];
+                    String DOB = studentTxt[3];
+                    int credit = Integer.parseInt(studentTxt[4]);
+
+                    if (id.equals(ID)) {
+                        Student student = new Student(ID, studentName, studentProgram, DOB, credit, studentProgram.charAt(0));
+                        student.addCourses();
+                        if (student.enrolCourses()) {
+                            student.enrolPastResults();
+                            student.viewPastEnrolments();
+
+                        }
+
+                    }
+
+
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
+
+    }
+    }

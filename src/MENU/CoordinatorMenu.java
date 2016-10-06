@@ -3,6 +3,7 @@ package MENU;
 import java.util.Scanner;
 
 import Driver.Driver;
+import USERS.Student;
 
 import java.io.*;
 /**
@@ -24,7 +25,7 @@ public class CoordinatorMenu {
         System.out.println("\n1. Define Program(s)");
         System.out.println("2. Create Student Account(s)"); //done
         System.out.println("3. Upload Student Enrolment(s)");
-        System.out.println("4. View Results of Student(s)");
+        System.out.println("4. View Results of Student(s)"); //done
         System.out.println("5. Graduate Student(s)"); //done
     }
 
@@ -53,8 +54,15 @@ public class CoordinatorMenu {
                 System.out.println("Upload Enrolment(s)");
                 break;
             case 4:
-                System.out.println("View Results of Student(s)");
-                driverClass.viewResutlsOfStudent();
+                System.out.println("Enter ID");
+                Scanner input = new Scanner(System.in);
+                String id = input.nextLine();
+
+                findID(id);
+
+
+
+
 
                 break;
             
@@ -93,6 +101,54 @@ public class CoordinatorMenu {
         menuOptions();
         int choice = getInput();
         performChoices(choice);
+
+    }
+    private void findID(String id){
+        BufferedReader br;
+        try {
+            //read external text file containing student info
+            br = new BufferedReader(new FileReader("studentList.txt"));
+            try {
+                String x;
+
+                //read all lines in file
+                while ( (x = br.readLine()) != null ) {
+
+
+                    String studentTxt[] = x.split(":", 5);
+                    String ID = studentTxt[0];
+                    String studentName = studentTxt[1];
+                    String studentProgram = studentTxt[2];
+                    String DOB = studentTxt[3];
+                    int credit = Integer.parseInt(studentTxt[4]);
+
+                    if(id.equals(ID)){
+                        Student student = new Student(ID, studentName, studentProgram, DOB, credit, studentProgram.charAt(0));
+                        student.addCourses();
+                        if(student.enrolCourses()){
+                            student.enrolPastResults();
+                            student.viewPastEnrolments();
+
+                        }
+
+                    }
+
+
+
+
+
+
+
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
 
     }
 

@@ -1,8 +1,13 @@
 package MENU;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 import Driver.Driver;
+import USERS.Student;
 
 /**
  * Created by Martin on 2/09/2016.
@@ -20,14 +25,18 @@ public class FacultyMenu {
     }
 
     private void menuOptions(){
-        System.out.println("\n1. View Student Results/Progress");
-        System.out.println("2. Graduate Student(s)");
+        System.out.println("\n1. View Student Results"); //done
+        System.out.println("2. Graduate Student(s)"); //done
     }
 
     private void performChoices(int choice){
         switch (choice){
             case 1:
-                System.out.println("View Result of Student(s)");
+                System.out.println("Enter ID");
+                Scanner input = new Scanner(System.in);
+                String id = input.nextLine();
+
+                findID(id);
                 break;
                 
             case 2:
@@ -56,6 +65,55 @@ public class FacultyMenu {
             }
         }
         return choice;
+    }
+
+    private void findID(String id){
+        BufferedReader br;
+        try {
+            //read external text file containing student info
+            br = new BufferedReader(new FileReader("studentList.txt"));
+            try {
+                String x;
+
+                //read all lines in file
+                while ( (x = br.readLine()) != null ) {
+
+
+                    String studentTxt[] = x.split(":", 5);
+                    String ID = studentTxt[0];
+                    String studentName = studentTxt[1];
+                    String studentProgram = studentTxt[2];
+                    String DOB = studentTxt[3];
+                    int credit = Integer.parseInt(studentTxt[4]);
+
+                    if(id.equals(ID)){
+                        Student student = new Student(ID, studentName, studentProgram, DOB, credit, studentProgram.charAt(0));
+                        student.addCourses();
+                        if(student.enrolCourses()){
+                            student.enrolPastResults();
+                            student.viewPastEnrolments();
+
+                        }
+
+                    }
+
+
+
+
+
+
+
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
+
     }
 
     public void runMenu(){

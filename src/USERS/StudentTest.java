@@ -14,7 +14,7 @@ public class StudentTest {
     //existingID, studentName, programCode, DOB
     @Before
     public void setUp(){
-        student = new Student("s3607187", "Martin", "BACH123", "05/29/96", 12);
+        student = new Student("s3607187", "Martin", "BACH123", "05/29/96", 12, 'B');
 
     }
 

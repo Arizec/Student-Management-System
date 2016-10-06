@@ -49,8 +49,8 @@ public class StudentMenu {
     }
 
     private void menuOptions(){
-        System.out.println("\n1. View Results");
-        System.out.println("2. View current enrolments");
+        System.out.println("\n1. View Results"); //done
+        System.out.println("2. View current enrolments"); //done
         System.out.println("3. Apply to Graduate"); //done
     }
 
@@ -61,12 +61,13 @@ public class StudentMenu {
             case 1:
 
                 System.out.println("View Result");
-                student.printCourses();
+                student.viewPastEnrolments();
 
                 break;
             case 2:
-                System.out.println("View current enrolment");
-                driverClass.viewProgress(studentID);
+                System.out.println("For Semester 2, 2016, you are currently enrolled in the following courses: ");
+                student.viewCurrentEnrolments();
+                //driverClass.viewProgress(studentID);
                 break;
 
             case 3:
@@ -118,6 +119,7 @@ public class StudentMenu {
                     String studentName = studentTxt[1];
                     String studentProgram = studentTxt[2];
                     String DOB = studentTxt[3];
+                    char type = studentProgram.charAt(0);
                     int credit = Integer.parseInt(studentTxt[4]);
 
 
@@ -129,21 +131,18 @@ public class StudentMenu {
                     //print their current details
                     if(studentID.equals(ID)){
 
-                        Student studentObject = new Student(ID, studentName, studentProgram, DOB, credit);
+                        Student studentObject = new Student(ID, studentName, studentProgram, DOB, credit, type);
                         studentObject.addCourses();
-                        for(int i=0 ; i<4; i++){
 
-                            studentObject.printCourses();
-                            System.out.println("Enter 4 Courses You wish to enrol in");
-                            Scanner userInput = new Scanner(System.in);
-                            if(!studentObject.enrolIntoCourse(userInput.nextLine())){
-                                i--;
-                                continue;
+
+
+                            if(studentObject.enrolCourses()){
+                                studentObject.enrolPastResults();
 
                             }
-                        }
 
 
+                            System.out.println(studentObject.getType());
                             printHeader();
                             menuOptions();
                             int choice = getInput();

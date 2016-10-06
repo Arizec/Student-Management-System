@@ -27,6 +27,8 @@ public class Courses {
 
     }
 
+
+
     //retrieve credits
     public int getCredits(){
         return creditsworth;
