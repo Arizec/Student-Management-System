@@ -5,4 +5,42 @@ COSC555:Introduction to Python:12:IT
 COSC666:Introduction to C++:12:IT
 COSC777:Introduction to C#:12:IT
 SCI444:Genetics & the Evolution of Life:12:SS
-COSC666:Introduction to C++:12:SS
+COSC111:Software Engineering fundamentals:12:IT
+COSC112:iOS Phone Engineering:12:IT
+COSC113:Android development:12:IT
+COSC114:Database concepts:12:IT
+COSC115:Web programming:12:IT
+COSC116:User centered design:12:IT
+COSC117:Calculus 1:12:IT
+COSC118:Calculus 2:12:IT
+COSC119:Calculus 3:12:IT
+COSC120:Calculus 4:12:IT
+COSC121:Psychology 101:12:IT
+LANG122:Japanese 1:12:IT
+LANG123:Korean 1:12:IT
+COSC124:Physics 101:12:IT
+COSC125:Chemistry 101:12:IT
+COSC126:The Internet and You:12:IT
+COSC127:Mind, body, and soul:12:IT
+COSC128:Hacking 101:12:IT
+COSC128:Government Hacking 101:12:IT
+COSC129:Financial Information for Decision Making:12:IT
+COSC130:Programming Concepts:12:IT
+COSC131:Problem Solving with ICT:12:IT
+COSC132:Database Analysis and Design:12:IT
+COSC133:Introduction to Business Information Systems:12:IT
+COSC134:Requirements Analysis and Modelling:12:IT
+COSC135:Organization Behavior:12:IT
+COSC136:Enterprise systems:12:IT
+COSC137:Behavior and Communication in Organizations:12:IT
+COSC138:Professional Issues in Information Technology:12:IT
+COSC139:Business Intelligence & Data Visualization:12:IT
+LANG140:Business Process Management:12:IT
+LANG141:Information Systems Management:12:IT
+COSC142:Information Systems Risk and Security:12:IT
+COSC143:Business Information Systems Industry Project:12:IT
+COSC144:Information Technology Project Management:12:IT
+INFF145:Integrated Professional Placement A:12:IT
+INFF146:Integrated Professional Placement B:12:IT
+COSC147:Work Experience in Industry A:12:IT
+COSC147:Work Experience in Industry B:12:IT
