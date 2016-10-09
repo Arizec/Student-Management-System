@@ -18,6 +18,7 @@ public class AdminMenu {
     ProgramDriver programClass = new ProgramDriver();
 
 
+
     /*
      * Prints header of menu
      */
@@ -65,21 +66,27 @@ public class AdminMenu {
 
             //creates program
             case 2:
+
+                driverClass.createProgram();
+                programClass.refreshProgramCourses();
+                programClass.printPrograms();
+
                 break;
 
             //View program details
             case 3:
-                programClass.refreshProgramCourses();
+
                 programClass.printPrograms();
                 //print
 
                 break;
 
-            //exit the program
+            //DEFINE Programs
             case 4:
                 System.out.println("Enter Program Code to Define");
                 Scanner code = new Scanner(System.in);
                 System.out.println(programClass.defineProgram(code.nextLine()));
+
 
                 break;
 

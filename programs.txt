@@ -4,3 +4,8 @@ DIT101:Information Systems:2:45:Diploma:Active
 HIT101:Information Systems:1:47:Post-graduate:Active
 BIT102:Computer Science:1:323:Bachelor:Active
 DIT102:Computer science:1:88:Diploma:Active
+BIT1234:Computer Systems:1:400:Master:Active
+BIT1111:artin:1:488:Bachelor:Active
+BIT111:Pas:1:488:Bachelor:Active
+BIT1111:PLokd:1:488:Bachelor:Active
+BIT1234:MARTINA:1:488:Bachelor:Active

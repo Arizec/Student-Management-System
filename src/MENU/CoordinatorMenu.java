@@ -3,6 +3,7 @@ package MENU;
 import java.util.Scanner;
 
 import Driver.Driver;
+import Driver.ProgramDriver;
 import USERS.Student;
 
 import java.io.*;
@@ -11,6 +12,7 @@ import java.io.*;
  */
 public class CoordinatorMenu {
     Driver driverClass = new Driver();
+    ProgramDriver programClass = new ProgramDriver();
 
     private void printHeader(){
 
@@ -32,7 +34,9 @@ public class CoordinatorMenu {
     private void performChoices(int choice){
         switch (choice){
             case 1:
-                System.out.println("Define Programs");
+                System.out.println("Enter Program Code to Define");
+                Scanner code = new Scanner(System.in);
+                System.out.println(programClass.defineProgram(code.nextLine()));
                 break;
             case 2:
                 Scanner reader = new Scanner(System.in);
@@ -52,13 +56,35 @@ public class CoordinatorMenu {
                 
             case 3:
                 System.out.println("Upload Enrolment(s)");
+                Scanner input = new Scanner(System.in);
+                System.out.println("How many student enrolments would you like to upload?");
+
+                //stores amount of student accounts that admin wants to create
+                int enrolments = input.nextInt();
+
+                int j;
+                //creates as many student accounts according to amount admin entered
+                for(j=0; j <enrolments; j++){
+                    String studentIDcreated = driverClass.createStudentLogin();        // makes sure it uses the studentID it created previously
+                    driverClass.createEnrollment(studentIDcreated);
+                };
+
+                System.out.println("Student enrolments(s) have been successfully uploaded!");
+
+                System.out.println("Enter ID of enrolment you wish to view.");
+                String id = input.nextLine();
+                String test = input.nextLine();
+
+                findID(id);
+                findID(test);
                 break;
             case 4:
                 System.out.println("Enter ID");
-                Scanner input = new Scanner(System.in);
-                String id = input.nextLine();
+                Scanner input1 = new Scanner(System.in);
 
-                findID(id);
+                String idz = input1.nextLine();
+
+                findID(idz);
 
 
 
@@ -97,10 +123,15 @@ public class CoordinatorMenu {
 
     public void runMenu(){
         driverClass.appendStudent();
-        printHeader();
-        menuOptions();
-        int choice = getInput();
-        performChoices(choice);
+        programClass.initializeProgramANDCourses();
+        while(true){
+            printHeader();
+            menuOptions();
+            int choice = getInput();
+            performChoices(choice);
+
+        }
+
 
     }
     private void findID(String id){

@@ -115,10 +115,13 @@ public class ProgramDriver {
 
         for(int i = 0; i< programList.size(); i++){
             if(programCode.equals(programList.get(i).getProgramCode())){
+
+
+
                 System.out.println("==== What would you like to Change ====");
-                System.out.println("         Program Name ");
-                System.out.println("         Program Code");
-                System.out.println("   Program Credits Required");
+                System.out.println("        1. Program Name ");
+                System.out.println("        2. Program Code");
+                System.out.println("   3. Program Credits Required");
                 System.out.println("======================================= ");
 
                 int choice = getInput(4);
@@ -129,12 +132,26 @@ public class ProgramDriver {
                     case 1:
                         System.out.println("Enter Program Name");
 
+
                         programList.get(i).setProgramName(define.nextLine());
+
+
+                        System.out.println("=============================");
+                        System.out.println("    Program Name: "+ programList.get(i).getProgramType() +" of "+ programList.get(i).getProgramName());
+                        System.out.println("    Program Code: " + programList.get(i).getProgramCode());
+                        System.out.println("============================= ");
+
                         return "Program name changed";
                     case 2:
                         System.out.println("Enter Program Code");
 
+
                         programList.get(i).setProgramCode(define.nextLine());
+
+                        System.out.println("=============================");
+                        System.out.println("    Program Name: "+  programList.get(i).getProgramType() +" of "+ programList.get(i).getProgramName());
+                        System.out.println("    Program Code: " + programList.get(i).getProgramCode());
+                        System.out.println("============================= ");
 
                         return "Program code changed";
 
@@ -142,6 +159,14 @@ public class ProgramDriver {
                         System.out.println("Enter Program Credits");
 
                         programList.get(i).setProgramCredit(define.nextInt());
+
+
+                        System.out.println("=============================");
+                        System.out.println("    Program Name: "+ programList.get(i).getProgramType() +" of "+ programList.get(i).getProgramName());
+                        System.out.println("    Program Code: " +  programList.get(i).getProgramCode());
+                        System.out.println("============================= ");
+
+
                         return "Program Credits Changed";
 
                     default:

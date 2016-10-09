@@ -29,6 +29,7 @@ public class ProgramCourses {
     ArrayList<Courses> courseList =  new ArrayList<Courses>();
 
 
+
     public ProgramCourses(String programCode, String programName, String programVersion, int creditsNeeded, String programType, boolean status){
         this.programCode = programCode;
         this.programName = programName;

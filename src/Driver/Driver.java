@@ -5,6 +5,7 @@ import USERS.Student;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.StringJoiner;
 
 import PROGRAMS.ProgramCourses;
 
@@ -341,17 +342,22 @@ public class Driver {
     /*
      * Creates a Program which includes, program code, ver no, credits to complete
      */
-    public void createProgram(){
+    public boolean createProgram(){
         try{
 
             String filename= "programs.txt";
+
             FileWriter fw = new FileWriter(filename,true); //the true will append the new data
             Scanner reader = new Scanner(System.in);
+            Scanner reader2 = new Scanner(System.in);
 
             System.out.println("Creating a new program");
             String facultyChoice = schoolFaculty();
             System.out.println("Program code [numbers only]");
             String programCode = facultyChoice + reader.nextLine();
+
+            System.out.println("Program Name");
+            String programName = reader.nextLine();
 
             System.out.println("Version number");
             String versionNo = reader.nextLine();
@@ -363,15 +369,57 @@ public class Driver {
 
             String programStatus = status();
 
-            String program = programCode + ":" + versionNo + ":" + creditsNeeded + ":" + programType +  ":" + programStatus;
-            fw.write("\r\n");
-            fw.write(program);//appends the string to the file
-            fw.close();
+            String program = programCode + ":" + programName + ":" + versionNo + ":" + creditsNeeded + ":" + programType +  ":" + programStatus;
+
+
+
+            System.out.println("Enter 4 Specialization Courses for this program");
+            while(true){
+
+                String special1 = reader2.nextLine();
+                if(checkforCourses(special1)){
+                    while(true){
+
+                        String special2 = reader2.nextLine();
+                        if(checkforCourses(special2)){
+
+                            while(true){
+                                String special3 = reader2.nextLine();
+                                if(checkforCourses(special3)){
+
+                                    while(true){
+                                        String special4 = reader2.nextLine();
+                                        if(checkforCourses(special4)){
+                                            fw.write("\r\n");
+                                            fw.write(program);//appends the string to the file
+                                            fw.close();
+                                            printSpecial(programCode, special1, special2, special3, special4);
+                                            return true;
+                                        }
+                                        System.out.println("Invalid Course Code");
+                                    }
+                                }
+                                System.out.println("Invalid Course Code");
+                            }
+                        }
+                        System.out.println("Invalid Course Code");
+                    }
+                }
+                System.out.println("Invalid Course Code");
+            }
+
+
+
+
+
+
         }
         catch(IOException ioe)
         {
             System.err.println("IOException: " + ioe.getMessage());
         }
+
+        return false;
 
     }
 
@@ -442,7 +490,7 @@ public class Driver {
 
             switch(choice){
                 default:
-                    return "IT";
+                    return "BIT";
 
 
             }
@@ -494,10 +542,54 @@ public class Driver {
     }
 
 
-    private void viewStudentResults(){
+    private boolean checkforCourses(String coursecode){
+        BufferedReader br;
+        try {
+            //read external text file containing student info
+            br = new BufferedReader(new FileReader("courses.txt"));
+            try {
+                String x;
+
+                //read all lines in file
+                while ( (x = br.readLine()) != null ) {
 
 
+                    String studentTxt[] = x.split(":", 4);
+                    if(coursecode.equals(studentTxt[0])){
+                        return true;
 
+                    }
+
+                }
+                return false;
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
+
+        return false;
+
+
+    }
+
+    private void printSpecial(String programCode, String special1, String special2, String special3, String special4){
+        try{
+            String specializationtxt = programCode + ":" + special1 + ":" + special2 + ":" + special3 + ":" + special4;
+            String filename2= "specialCourse.txt";
+            FileWriter fw2 = new FileWriter(filename2,true); //the true will append the new data
+            fw2.write("\r\n");
+            fw2.write(specializationtxt);
+            fw2.close();
+
+        } catch(IOException ioe) {
+
+            System.err.println("IOException: " + ioe.getMessage());
+        }
 
     }
 
