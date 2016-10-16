@@ -45,7 +45,8 @@ public class ProgramDriver {
 
                     }
 
-                    ProgramCourses program = new ProgramCourses(programCode, programName, version, creditsRequired, programType, active);
+                    ProgramCourses program = new ProgramCourses(programCode, programName, version, creditsRequired,
+                            programType, active);
                     programList.add(program);
 
 
@@ -117,7 +118,7 @@ public class ProgramDriver {
             if(programCode.equals(programList.get(i).getProgramCode())){
 
 
-
+                //menu for define program
                 System.out.println("==== What would you like to Change ====");
                 System.out.println("        1. Program Name ");
                 System.out.println("        2. Program Code");
@@ -129,7 +130,7 @@ public class ProgramDriver {
                 Scanner define = new Scanner(System.in);
 
                 switch (choice){
-                    case 1:
+                    case 1: //change program name
                         System.out.println("Enter Program Name");
 
 
@@ -137,32 +138,35 @@ public class ProgramDriver {
 
 
                         System.out.println("=============================");
-                        System.out.println("    Program Name: "+ programList.get(i).getProgramType() +" of "+ programList.get(i).getProgramName());
+                        System.out.println("    Program Name: "+ programList.get(i).getProgramType() +" of "+
+                                programList.get(i).getProgramName());
                         System.out.println("    Program Code: " + programList.get(i).getProgramCode());
                         System.out.println("============================= ");
 
                         return "Program name changed";
-                    case 2:
+                    case 2: //change program code
                         System.out.println("Enter Program Code");
 
 
                         programList.get(i).setProgramCode(define.nextLine());
 
                         System.out.println("=============================");
-                        System.out.println("    Program Name: "+  programList.get(i).getProgramType() +" of "+ programList.get(i).getProgramName());
+                        System.out.println("    Program Name: "+  programList.get(i).getProgramType() +" of "+
+                                programList.get(i).getProgramName());
                         System.out.println("    Program Code: " + programList.get(i).getProgramCode());
                         System.out.println("============================= ");
 
                         return "Program code changed";
 
-                    case 3:
+                    case 3: //change credits required to complete a program
                         System.out.println("Enter Program Credits");
 
                         programList.get(i).setProgramCredit(define.nextInt());
 
 
                         System.out.println("=============================");
-                        System.out.println("    Program Name: "+ programList.get(i).getProgramType() +" of "+ programList.get(i).getProgramName());
+                        System.out.println("    Program Name: "+ programList.get(i).getProgramType() +" of "+
+                                programList.get(i).getProgramName());
                         System.out.println("    Program Code: " +  programList.get(i).getProgramCode());
                         System.out.println("============================= ");
 
@@ -170,7 +174,6 @@ public class ProgramDriver {
                         return "Program Credits Changed";
 
                     default:
-                        System.out.println("4");
                         break;
 
                 }
@@ -185,6 +188,7 @@ public class ProgramDriver {
 
     }
 
+    //validates input
     private int getInput(int numberofChoices){
         int choice = -1;
         Scanner input = new Scanner(System.in);

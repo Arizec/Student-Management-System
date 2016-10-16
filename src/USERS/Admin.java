@@ -9,14 +9,14 @@ import java.io.*;
 public class Admin {
 
 	// information/details related to a Student
-	private String studentID;
+	private String staffID;
 	private String fullName;
 	private String dob;
 	private String programCode;
 
 
-	public Admin(String studentID, String fullName, String programCode, String dob){
-		this.studentID = studentID;
+	public Admin(String staffID, String fullName, String dob){
+		this.staffID = staffID;
 		this.fullName = fullName;
 		this.programCode = programCode;
 		this.dob = dob;

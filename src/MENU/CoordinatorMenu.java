@@ -134,6 +134,8 @@ public class CoordinatorMenu {
 
 
     }
+
+    /* print past results and current enrolment of specified student */
     private void findID(String id){
         BufferedReader br;
         try {

@@ -24,26 +24,35 @@ public class FacultyMenu {
 
     }
 
+    //fac admin is displayed menu for selection
     private void menuOptions(){
-        System.out.println("\n1. View Student Results"); //done
-        System.out.println("2. Graduate Student(s)"); //done
+        System.out.println("\n1. View Student Results");
+        System.out.println("2. Graduate Student(s)");
+        System.out.println("3. Exit"); //exit the system
     }
 
+    //perform the choice selected at menu
     private void performChoices(int choice){
         switch (choice){
             case 1:
+                //enter ID of student that fac wants to view the result of
                 System.out.println("Enter ID");
                 Scanner input = new Scanner(System.in);
                 String id = input.nextLine();
 
+                //finds students results associated with id entered
                 findID(id);
                 break;
                 
             case 2:
+                //graduate all students eligible to graduate
                 System.out.println("Students graduated are: ");
                 driverClass.graduateStudent();
-
                 break;
+
+            case 3:
+                //exit the system
+                System.exit(0);
             default:
                 System.out.println("4");
                 break;
@@ -55,7 +64,7 @@ public class FacultyMenu {
         int choice = -1;
         Scanner input = new Scanner(System.in);
 
-        while( choice <0 || choice > 2){			// catches exception if not a number between 0 and 12.
+        while( choice <0 || choice > 3){			// catches exception if number is invalid
             try {
                 System.out.print("\nEnter Your Choice: ");
                 choice = Integer.parseInt(input.nextLine());
@@ -67,6 +76,7 @@ public class FacultyMenu {
         return choice;
     }
 
+    //retrieves past results of id fac entered
     private void findID(String id){
         BufferedReader br;
         try {
@@ -86,9 +96,12 @@ public class FacultyMenu {
                     String DOB = studentTxt[3];
                     int credit = Integer.parseInt(studentTxt[4]);
 
+                    //if student exists in system
                     if(id.equals(ID)){
                         Student student = new Student(ID, studentName, studentProgram, DOB, credit, studentProgram.charAt(0));
-                        student.addCourses();
+                        student.addCourses(); //dynamically add student courses at runtime (to test system works)
+
+                        //show past results of students and courses they are enrolled in this semester
                         if(student.enrolCourses()){
                             student.enrolPastResults();
                             student.viewPastEnrolments();
@@ -116,6 +129,7 @@ public class FacultyMenu {
 
     }
 
+    //run every operation
     public void runMenu(){
 
         printHeader();

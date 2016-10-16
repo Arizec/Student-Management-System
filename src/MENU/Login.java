@@ -25,32 +25,36 @@ public class Login {
             System.out.println("Password: ");
             String password = reader.nextLine();
 
+            //login details are valid, proceed to associated menu
             if (findLoginDetails(username, password)) {
 
 
-
+                //go to student menu
                 if(username.charAt(0) == 's'){
                     StudentMenu studentMenu = new StudentMenu(username);
                 	studentMenu.runMenu();
                 }
+
+                //go to admin menu
                 else if(username.charAt(0) == 'a'){
-
-
                     adminMenu.runMenu();
 
                 }
-                else if(username.charAt(0) == 'c'){
 
+                //go to coordinator menu
+                else if(username.charAt(0) == 'c'){
                     coMenu.runMenu();
 
                 }
+
+                //go to facaulty admin menu
                 else if(username.charAt(0) == 'f'){
                     facMenu.runMenu();
 
                 }
                 break;
 
-
+            //invalid login details, ask for it again
             }else{
 
                 System.out.println("Invalid Username or Password");
@@ -60,6 +64,7 @@ public class Login {
 
     }
 
+    /* see if login account exists */
     private boolean findLoginDetails(String username, String password){
         BufferedReader br;
         try {

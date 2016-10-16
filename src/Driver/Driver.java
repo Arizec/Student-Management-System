@@ -9,9 +9,7 @@ import java.util.StringJoiner;
 
 import PROGRAMS.ProgramCourses;
 
-/**
- * Created by Martin on 6/09/2016.
- */
+
 public class Driver {
 	
     private String studentID;
@@ -88,9 +86,6 @@ public class Driver {
                 //read all lines in file
                 while ( (x = br.readLine()) != null ) {
                     System.out.println(x);
-
-
-
                 }
 
 
@@ -189,56 +184,6 @@ public class Driver {
                     
     }
 
-
-    
-    /*
-     * View student progress
-     */
-    public void viewProgress(String existingID){
-    	BufferedReader br;
-        try {
-        	//read external text file containing student info
-            br = new BufferedReader(new FileReader("studentList.txt"));
-            try {
-                String x;
-                
-                //read all lines in file
-                while ( (x = br.readLine()) != null ) {
-                	
-                	
-                    String studentTxt[] = x.split(":", 5);
-                    String ID = studentTxt[0];
-                    String studentProgram = studentTxt[2];
-                    String credits = studentTxt[4];
-
-                    String studentName = studentTxt[1];
-
-                    String DOB = studentTxt[3];
-
-                    //if ID in file matches ID of student logged in
-                    //print their current details
-                    if(existingID.equals(ID)){
-                    	System.out.println("Hi " + studentName+"! Here are your "
-                    			+ "current details");
-                    	
-                    	System.out.println("Program: " + studentProgram);
-                    	System.out.println("DOB: " + DOB);
-                    	System.out.println("Credits completed: " + credits);
-                    	
-                    }
-                }
-    
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println(e);
-            e.printStackTrace();
-        }
-
-    	
-    }
     
     /*
      * function to create student login account, i.e their
@@ -253,6 +198,7 @@ public class Driver {
             FileWriter fw = new FileWriter(filename,true); //the true will append the new data
             Scanner reader = new Scanner(System.in);
 
+            //student login id and password is created
             System.out.println("Create Student login details: ");
             System.out.println("Create Student ID");
             String studentID = reader.nextLine();
@@ -276,10 +222,14 @@ public class Driver {
 
     }
 
-    
+    /*
+     * Used to verify student profile creation
+     */
     public String returnID(String existingID){
     	return existingID;
     }
+
+
     /*
      * Create student profile/information
      */
@@ -296,6 +246,7 @@ public class Driver {
             }
         }
 
+        //student profile and info is created
         System.out.println("Enter student name: ");
         String studentName = reader.nextLine();
         System.out.println("Enter DOB: ");
@@ -310,6 +261,11 @@ public class Driver {
 
     }
 
+    /*
+     * Student bulk enrollments are created.
+     * Only difference with create student is that you can enter the amount of credits a student has completed.
+     * Useful for transfer students (either external or internal)
+     */
     public void createEnrollment(String existingID){
         Scanner reader = new Scanner(System.in);
         //student profile is create. Name+ DOB + program
@@ -323,6 +279,7 @@ public class Driver {
             }
         }
 
+        //student details are created
         System.out.println("Enter student name: ");
         String studentName = reader.nextLine();
         System.out.println("Enter DOB: ");
@@ -334,7 +291,7 @@ public class Driver {
         int credit = reader.nextInt();
 
         Student student = new Student(existingID, studentName, programCode, DOB, credit, programCode.charAt(0));
-        writeToFile(student);
+        writeToFile(student); //and is writted to file
 
 
     }
@@ -351,6 +308,7 @@ public class Driver {
             Scanner reader = new Scanner(System.in);
             Scanner reader2 = new Scanner(System.in);
 
+            //program details are created
             System.out.println("Creating a new program");
             String facultyChoice = schoolFaculty();
             System.out.println("Program code [numbers only]");
@@ -369,10 +327,12 @@ public class Driver {
 
             String programStatus = status();
 
-            String program = programCode + ":" + programName + ":" + versionNo + ":" + creditsNeeded + ":" + programType +  ":" + programStatus;
+            String program = programCode + ":" + programName + ":" + versionNo + ":" + creditsNeeded + ":" +
+                    programType +  ":" + programStatus;
 
 
 
+            //4 specialisation courses are added to a program
             System.out.println("Enter 4 Specialization Courses for this program");
             while(true){
 
@@ -424,7 +384,7 @@ public class Driver {
     }
 
     /*
-     * Appent student information to an external text file
+     * Append student information to an external text file
      */
     private void writeToFile(Student student){
 
@@ -542,6 +502,9 @@ public class Driver {
     }
 
 
+    /*
+     * Finds the course in text file to see if it exists
+     */
     private boolean checkforCourses(String coursecode){
         BufferedReader br;
         try {
@@ -577,6 +540,9 @@ public class Driver {
 
     }
 
+    /*
+     * prints specialisation courses associated to a program
+     */
     private void printSpecial(String programCode, String special1, String special2, String special3, String special4){
         try{
             String specializationtxt = programCode + ":" + special1 + ":" + special2 + ":" + special3 + ":" + special4;

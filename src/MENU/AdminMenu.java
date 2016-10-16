@@ -59,7 +59,9 @@ public class AdminMenu {
             	int i;
                 //creates as many student accounts according to amount admin entered
             	for(i=0; i<numberOfAccounts; i++){
-            			String studentIDcreated = driverClass.createStudentLogin();        // makes sure it uses the studentID it created previously
+                    // makes sure it uses the studentID it created previously
+            			String studentIDcreated = driverClass.createStudentLogin();
+
             			driverClass.createStudent(studentIDcreated);            			
                 };
             	break;
@@ -172,7 +174,7 @@ public class AdminMenu {
 
 
 
-
+    /* print past results and current enrolments for student specified */
     private void findID(String id) {
         BufferedReader br;
         try {

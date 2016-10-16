@@ -67,7 +67,7 @@ public class StudentMenu {
             case 2:
                 System.out.println("For Semester 2, 2016, you are currently enrolled in the following courses: ");
                 student.viewCurrentEnrolments();
-                //driverClass.viewProgress(studentID);
+
                 break;
 
             case 3:
